@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" dir="ltr" id="htmlRoot">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RIU Online Admission Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#145e6d", "background-light": "#f6f8f8", "background-dark": "#121e20" }, fontFamily: { display: "Noto Serif" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" } } } };</script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        #success-modal:target {
+            display: flex;
+        }
+
+        html[dir="rtl"] body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        html[dir="rtl"] * {
+            text-align: inherit;
+        }
+
+        html[dir="ltr"] body {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+    <script>
+        const translations = {
+            en: {
+                nav_programs: "Programs",
+                nav_admissions: "Admissions",
+                nav_about: "About",
+                nav_research: "Research",
+                search_placeholder: "Search courses, faculty...",
+                btn_portal: "Student Portal",
+                breadcrumb_home: "Home",
+                breadcrumb_admissions: "Admissions",
+                breadcrumb_application: "Online Application",
+                portal_title: "RIU Admission Portal",
+                portal_desc: "Start your journey at Rabbaninen International University. Securely submit your documents and register for the upcoming academic year.",
+                req_title: "Registration Requirements",
+                req_intro: "Before proceeding, ensure you have digital copies of the following four core requirements:",
+                req_id: "Valid ID / Passport",
+                req_id_desc: "Government issued identification",
+                req_cert: "Previous Certificate",
+                req_cert_desc: "High School or Bachelor Diploma",
+                req_photo: "Personal Photo",
+                req_photo_desc: "Recent photograph",
+                req_note: "All documents must be uploaded in PDF or JPG format. Max file size: 10MB per document.",
+                support_title: "Admissions Support",
+                support_desc: "Need assistance with your application? Contact the RIU registrar.",
+                personal_title: "Personal & Academic Details",
+                personal_desc: "Please provide accurate information as per your official records for RIU registration.",
+                secure_title: "Secure Storage Integration Active",
+                secure_desc: "Files will be saved to secure university storage & cloud systems upon submission.",
+                form_ar_name: "Full Name In Arabic",
+                form_ar_placeholder: "e.g. احمد علي",
+                form_en_name: "Full Name In English",
+                form_en_placeholder: "e.g. Ahmed Ali",
+                form_nationality: "Nationality",
+                form_select_nationality: "Select Nationality",
+                form_college: "Intended College",
+                form_select_college: "Select College",
+                form_department: "Department",
+                form_select_department: "Select Department",
+                form_whatsapp: "WhatsApp Number",
+                form_whatsapp_placeholder: "e.g. +967712345678",
+                form_upload_title: "Document Upload",
+                form_secure_submit: "Secure Submission",
+                form_upload_desc: "Upload Passport & Previous Certificates",
+                form_upload_hint: "Drag & drop files here, or click to browse",
+                form_file_error: "You must upload exactly 3 files",
+                form_payment_agreement: "I agree to pay the application fee and accept the university's payment terms and conditions.",
+                form_system_agreement: "I agree to comply with the college's academic system, policies, and regulations.",
+                form_submit: "Save",
+                form_loading: "Submitting Application",
+                form_loading_desc: "Please wait while we securely process your application...",
+                form_error_title: "Submission Failed",
+                form_error_desc: "An error occurred. Please try again.",
+                form_try_again: "Try Again",
+                footer_copyright: "© 2025 Rabbaninen International University. All rights reserved.",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Use",
+                footer_accreditation: "Accreditation"
+            },
+            ar: {
+                nav_programs: "البرامج",
+                nav_admissions: "القبول",
+                nav_about: "عن الجامعة",
+                nav_research: "البحث العلمي",
+                search_placeholder: "ابحث عن المقررات والهيئة التدريسية...",
+                btn_portal: "بوابة الطالب",
+                breadcrumb_home: "الرئيسية",
+                breadcrumb_admissions: "القبول",
+                breadcrumb_application: "الطلب الإلكتروني",
+                portal_title: "بوابة القبول بجامعة ربانيين",
+                portal_desc: "ابدأ رحلتك في جامعة ربانيين العالمية. قم بتقديم وثائقك بشكل آمن وتسجل للعام الأكاديمي القادم.",
+                req_title: "متطلبات التسجيل",
+                req_intro: "قبل المتابعة، تأكد من أن لديك نسخ رقمية من المتطلبات الأساسية الأربعة التالية:",
+                req_id: "بطاقة الهوية / جواز السفر",
+                req_id_desc: "بطاقة هوية صادرة من الحكومة",
+                req_cert: "الشهادة السابقة",
+                req_cert_desc: "شهادة الثانوية العامة أو شهادة البكالوريوس",
+                req_photo: "صورة شخصية",
+                req_photo_desc: "صورة حديثة",
+                req_note: "يجب تحميل جميع المستندات بصيغة PDF أو JPG. الحد الأقصى لحجم الملف: 10 ميجابايت لكل مستند.",
+                support_title: "دعم القبول",
+                support_desc: "هل تحتاج إلى مساعدة في طلبك؟ تواصل مع مسجل جامعة ربانيين.",
+                personal_title: "التفاصيل الشخصية والأكاديمية",
+                personal_desc: "يرجى تقديم معلومات دقيقة وفقاً لسجلاتك الرسمية لتسجيل جامعة ربانيين.",
+                secure_title: "تجميع التخزين الآمن مفعل",
+                secure_desc: "سيتم حفظ الملفات في أنظمة التخزين الجامعي الآمنة ونظام السحابة عند التقديم.",
+                form_ar_name: "الاسم الكامل باللغة العربية",
+                form_ar_placeholder: "مثال: احمد علي",
+                form_en_name: "الاسم الكامل باللغة الإنجليزية",
+                form_en_placeholder: "مثال: Ahmed Ali",
+                form_nationality: "الجنسية",
+                form_select_nationality: "اختر الجنسية",
+                form_college: "الكلية المقصودة",
+                form_select_college: "اختر الكلية",
+                form_department: "التخصص",
+                form_select_department: "اختر التخصص",
+                form_whatsapp: "رقم واتساب",
+                form_whatsapp_placeholder: "مثال: +967712345678",
+                form_upload_title: "تحميل المستندات",
+                form_secure_submit: "التقديم الآمن",
+                form_upload_desc: "تحميل جواز السفر والشهادات السابقة",
+                form_upload_hint: "اسحب وأفلت الملفات هنا، أو انقر للاستعراض",
+                form_file_error: "يجب تحميل 3 ملفات بالضبط",
+                form_payment_agreement: "أوافق على دفع رسوم الطلب وأقبل شروط وأحكام الدفع بالجامعة.",
+                form_system_agreement: "أوافق على الامتثال لنظام الكلية الأكاديمي وسياساتها وأنظمتها.",
+                form_submit: "حفظ",
+                form_loading: "تقديم الطلب",
+                form_loading_desc: "يرجى الانتظار بينما نعالج طلبك بشكل آمن...",
+                form_error_title: "فشل التقديم",
+                form_error_desc: "حدث خطأ. يرجى المحاولة مرة أخرى.",
+                form_try_again: "حاول مجددا",
+                footer_copyright: "© 2025 جامعة ربانيين العالمية. جميع الحقوق محفوظة.",
+                footer_privacy: "سياسة الخصوصية",
+                footer_terms: "شروط الاستخدام",
+                footer_accreditation: "الاعتماد الأكاديمي"
+            }
+        };
+
+        function initLanguage() {
+            const saved = localStorage.getItem('language') || 'en';
+            setLanguage(saved);
+        }
+
+        function setLanguage(lang) {
+            const html = document.getElementById('htmlRoot');
+            const dir = lang === 'ar' ? 'rtl' : 'ltr';
+            html.lang = lang;
+            html.dir = dir;
+            localStorage.setItem('language', lang);
+            updateLanguageContent(lang);
+            updatePageText(lang);
+        }
+
+        function toggleLanguage() {
+            const html = document.getElementById('htmlRoot');
+            const currentLang = html.lang;
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            setLanguage(newLang);
+        }
+
+        function updateLanguageContent(lang) {
+            const langText = document.getElementById('langText');
+            if (lang === 'ar') {
+                document.documentElement.classList.add('is-arabic');
+                langText.textContent = 'English';
+            } else {
+                document.documentElement.classList.remove('is-arabic');
+                langText.textContent = 'العربية';
+            }
+        }
+
+        function updatePageText(lang) {
+            const t = translations[lang];
+            const elements = {
+                'nav-programs': t.nav_programs,
+                'nav-admissions': t.nav_admissions,
+                'nav-about': t.nav_about,
+                'nav-research': t.nav_research,
+                'search-input': t.search_placeholder,
+                'btn-portal': t.btn_portal,
+                'req-title': t.req_title,
+                'req-intro': t.req_intro,
+                'req-id': t.req_id,
+                'req-id-desc': t.req_id_desc,
+                'req-cert': t.req_cert,
+                'req-cert-desc': t.req_cert_desc,
+                'req-photo': t.req_photo,
+                'req-photo-desc': t.req_photo_desc,
+                'req-note': t.req_note,
+                'support-title': t.support_title,
+                'support-desc': t.support_desc,
+                'personal-title': t.personal_title,
+                'personal-desc': t.personal_desc,
+                'secure-title': t.secure_title,
+                'secure-desc': t.secure_desc,
+                'form-ar-name': t.form_ar_name,
+                'form-ar-placeholder': t.form_ar_placeholder,
+                'form-en-name': t.form_en_name,
+                'form-en-placeholder': t.form_en_placeholder,
+                'form-nationality': t.form_nationality,
+                'form-select-nationality': t.form_select_nationality,
+                'form-college': t.form_college,
+                'form-select-college': t.form_select_college,
+                'form-department': t.form_department,
+                'form-select-department': t.form_select_department,
+                'form-whatsapp': t.form_whatsapp,
+                'form-whatsapp-placeholder': t.form_whatsapp_placeholder,
+                'form-upload-title': t.form_upload_title,
+                'form-secure-submit': t.form_secure_submit,
+                'form-upload-desc': t.form_upload_desc,
+                'form-upload-hint': t.form_upload_hint,
+                'form-file-error': t.form_file_error,
+                'form-payment-agreement': t.form_payment_agreement,
+                'form-system-agreement': t.form_system_agreement,
+                'form-submit': t.form_submit,
+                'form-loading': t.form_loading,
+                'form-loading-desc': t.form_loading_desc,
+                'form-error-title': t.form_error_title,
+                'form-error-desc': t.form_error_desc,
+                'form-try-again': t.form_try_again,
+                'footer-copyright': t.footer_copyright,
+                'footer-privacy': t.footer_privacy,
+                'footer-terms': t.footer_terms,
+                'footer-accreditation': t.footer_accreditation
+            };
+
+            for (const [id, text] of Object.entries(elements)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initLanguage);
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-white min-h-screen">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <nav
+            class="sticky top-0 z-50 w-full border-b border-[#e8f0f2] bg-white/95 backdrop-blur-sm dark:bg-[#121e20]/95 dark:border-gray-700">
+            <div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1440px] mx-auto">
+                <div class="flex items-center gap-4 md:gap-8">
+                    <!-- Logo Area -->
+                    <div class="flex items-center gap-3 text-primary dark:text-white">
+                        <div class="size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined text-[28px]">school</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold leading-tight tracking-tight">RIU</span>
+                            <span class="text-xs font-medium opacity-80">جامعة ربانيين العالمية</span>
+                        </div>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-8 pl-8">
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                                id="nav-programs">Programs</span></a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                                id="nav-admissions">Admissions</span></a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                                id="nav-about">About</span></a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                                id="nav-research">Research</span></a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Language Switch Button -->
+                    <button
+                        class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[#0f181a] dark:text-white px-3 h-10 rounded-lg transition-colors text-sm font-medium"
+                        id="langToggle" onclick="toggleLanguage()">
+                        <span class="material-symbols-outlined text-[18px]">language</span>
+                        <span id="langText">العربية</span>
+                    </button>
+                    <!-- Search -->
+                    <div class="hidden md:flex items-center bg-[#e8f0f2] dark:bg-gray-800 rounded-lg px-3 h-10 w-64">
+                        <span
+                            class="material-symbols-outlined text-[#538893] dark:text-gray-400 text-[20px]">search</span>
+                        <input
+                            class="bg-transparent border-none focus:ring-0 text-sm w-full ml-2 text-[#0f181a] dark:text-white placeholder:text-[#538893]"
+                            id="search-input" placeholder="Search courses, faculty..." />
+                    </div>
+                    <!-- CTA -->
+                    <button
+                        class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 h-10 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">account_circle</span>
+                        <span class="hidden sm:inline" id="btn-portal">Student Portal</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <main class="flex-1 max-w-[1200px] mx-auto w-full px-4 sm:px-10 py-8">
+            <div class="flex flex-wrap gap-2 items-center mb-6">
+                <a class="text-[#4c669a] dark:text-gray-400 text-sm font-medium hover:underline" href="#">Home</a>
+                <span class="material-symbols-outlined text-[#4c669a] text-sm">chevron_right</span>
+                <a class="text-[#4c669a] dark:text-gray-400 text-sm font-medium hover:underline" href="#">Admissions</a>
+                <span class="material-symbols-outlined text-[#4c669a] text-sm">chevron_right</span>
+                <span class="text-primary text-sm font-bold">Online Application</span>
+            </div>
+            <div class="w-full mb-8">
+                <div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[280px] relative shadow-lg"
+                    data-alt="Modern university campus aerial view"
+                    style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-9ke4w7slUg8g4mpoT8lUIyoY0GKCoJLYkfIQy2j8gzsZ2vOgmuAwyKySNdnIjQxqGVIdYXqGW5gMqGUh3RXbBoExc4QtQFRSNS8BO5bIaJfGTABnoo498arTk_fHpTHceV8JeB9m_79LHspPbuI7H7g2oIbjkOzU4mPPuojaIo4eQIDu_9DUGqnsOikXwTCXH4n1vD4d-AFXCO186dEsugQMsgt49S_t_HQBAEXbDQCEUBsQ7PdREwpLzjo1cVnZJkaBym0fkDo");'>
+                    <div class="p-8">
+                        <h1 class="text-white text-4xl font-bold leading-tight mb-2">RIU Admission Portal</h1>
+                        <p class="text-blue-100 text-lg max-w-2xl">Start your journey at Rabbaninen International
+                            University. Securely submit your documents and register for the upcoming academic year.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <aside class="lg:col-span-4 space-y-6">
+                    <div
+                        class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-[#e7ebf3] dark:border-gray-800">
+                        <h2 class="text-[#0d121b] dark:text-white text-xl font-bold mb-6 flex items-center gap-2"
+                            id="req-title">
+                            <span class="material-symbols-outlined text-primary">assignment_turned_in</span>
+                            Registration Requirements
+                        </h2>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-sm text-[#4c669a] dark:text-gray-400 mb-4" id="req-intro">Before
+                                    proceeding, ensure you
+                                    have digital copies of the following four core requirements:</p>
+                                <ul class="space-y-4">
+                                    <li class="flex gap-3 items-start p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                                        <span class="material-symbols-outlined text-primary text-xl mt-0.5">badge</span>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-[#0d121b] dark:text-white" id="req-id">
+                                                Valid ID /
+                                                Passport</h4>
+                                            <span class="text-xs text-[#4c669a] dark:text-gray-400"
+                                                id="req-id-desc">Government issued
+                                                identification</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex gap-3 items-start p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-xl mt-0.5">school</span>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-[#0d121b] dark:text-white" id="req-cert">
+                                                Previous
+                                                Certificate</h4>
+                                            <span class="text-xs text-[#4c669a] dark:text-gray-400"
+                                                id="req-cert-desc">High School or
+                                                Bachelor Diploma</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex gap-3 items-start p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-xl mt-0.5">photo_camera</span>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-[#0d121b] dark:text-white" id="req-photo">
+                                                Personal
+                                                Photo</h4>
+                                            <span class="text-xs text-[#4c669a] dark:text-gray-400"
+                                                id="req-photo-desc">Recent photograph
+                                            </span>
+                                        </div>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-[#e7ebf3] dark:border-gray-800">
+                            <div class="bg-primary/10 p-4 rounded-lg flex gap-3">
+                                <span class="material-symbols-outlined text-primary">info</span>
+                                <p class="text-xs text-[#4c669a] dark:text-gray-300 leading-relaxed" id="req-note">
+                                    All documents must be uploaded in PDF or JPG format. Max file size: 10MB per
+                                    document.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary p-6 rounded-xl text-white shadow-md">
+                        <h3 class="font-bold text-lg mb-2" id="support-title">Admissions Support</h3>
+                        <p class="text-sm text-blue-100 mb-4" id="support-desc">Need assistance with your application?
+                            Contact the RIU
+                            registrar.</p>
+                        <div class="space-y-3">
+
+                            <li class="flex items-center gap-3">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <title>whatsapp [#128]</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs> </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Dribbble-Light-Preview"
+                                                transform="translate(-300.000000, -7599.000000)" fill="#ffffff">
+                                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                    <path
+                                                        d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                                                        id="whatsapp-[#128]"> </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span>+18137789708 </span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <title>whatsapp [#128]</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs> </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Dribbble-Light-Preview"
+                                                transform="translate(-300.000000, -7599.000000)" fill="#ffffff">
+                                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                    <path
+                                                        d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                                                        id="whatsapp-[#128]"> </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span>+967712236727 </span>
+                            </li>
+                        </div>
+                    </div>
+                </aside>
+                <section
+                    class="lg:col-span-8 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-[#e7ebf3] dark:border-gray-800 overflow-hidden relative">
+
+                    <div class="p-8">
+                        <div
+                            class="mb-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 flex items-center gap-4">
+                            <div class="bg-blue-500 text-white rounded-full p-1 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-sm">cloud_sync</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-blue-900 dark:text-blue-100" id="secure-title">
+                                    Secure Storage
+                                    Integration Active</p>
+                                <p class="text-xs text-blue-700 dark:text-blue-300" id="secure-desc">Files will be saved
+                                    to secure
+                                    university storage &amp; cloud systems upon submission.</p>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-bold text-[#0d121b] dark:text-white mb-2" id="personal-title">
+                                Personal &amp; Academic
+                                Details</h2>
+                            <p class="text-[#4c669a] dark:text-gray-400" id="personal-desc">Please provide accurate
+                                information as per your
+                                official records for RIU registration.</p>
+                        </div>
+                        <form class="space-y-8" id="applicationForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200"
+                                        id="form-ar-name">Full Name In
+                                        Arabic</label>
+                                    <input
+                                        class="w-full rounded-lg border-[#e7ebf3] dark:border-gray-700 dark:bg-gray-800 focus:border-primary focus:ring-primary"
+                                        placeholder="e.g. احمد علي" name="ar_name" id="form-ar-placeholder" type="text"
+                                        required />
+                                    <span class="error-message text-xs text-red-600 dark:text-red-400 hidden">Arabic
+                                        name is required</span>
+                                </div>
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200"
+                                        id="form-en-name">Full Name In
+                                        English</label>
+                                    <input
+                                        class="w-full rounded-lg border-[#e7ebf3] dark:border-gray-700 dark:bg-gray-800 focus:border-primary focus:ring-primary"
+                                        placeholder="e.g. Ahmed Ali" id="form-en-placeholder" name="en_name" type="text"
+                                        required />
+                                    <span class="error-message text-xs text-red-600 dark:text-red-400 hidden">English
+                                        name is required</span>
+                                </div>
+                                <div class="space-y-2 md:col-span-2">
+                                    <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200"
+                                        id="form-nationality">Nationality</label>
+                                    <select name="nationality"
+                                        class="w-full rounded-lg border-[#e7ebf3] dark:border-gray-700 dark:bg-gray-800 focus:border-primary focus:ring-primary"
+                                        required>
+                                        <option value="" id="form-select-nationality">Select Nationality</option>
+                                        <option>Afghanistan</option>
+                                        <option>Albania</option>
+                                        <option>Algeria</option>
+                                        <option>Andorra</option>
+                                        <option>Angola</option>
+                                        <option>Antigua and Barbuda</option>
+                                        <option>Argentina</option>
+                                        <option>Armenia</option>
+                                        <option>Australia</option>
+                                        <option>Austria</option>
+                                        <option>Azerbaijan</option>
+                                        <option>Bahamas</option>
+                                        <option>Bahrain</option>
+                                        <option>Bangladesh</option>
+                                        <option>Barbados</option>
+                                        <option>Belarus</option>
+                                        <option>Belgium</option>
+                                        <option>Belize</option>
+                                        <option>Benin</option>
+                                        <option>Bhutan</option>
+                                        <option>Bolivia</option>
+                                        <option>Bosnia and Herzegovina</option>
+                                        <option>Botswana</option>
+                                        <option>Brazil</option>
+                                        <option>Brunei</option>
+                                        <option>Bulgaria</option>
+                                        <option>Burkina Faso</option>
+                                        <option>Burundi</option>
+                                        <option>Cambodia</option>
+                                        <option>Cameroon</option>
+                                        <option>Canada</option>
+                                        <option>Cape Verde</option>
+                                        <option>Central African Republic</option>
+                                        <option>Chad</option>
+                                        <option>Chile</option>
+                                        <option>China</option>
+                                        <option>Colombia</option>
+                                        <option>Comoros</option>
+                                        <option>Congo</option>
+                                        <option>Costa Rica</option>
+                                        <option>Croatia</option>
+                                        <option>Cuba</option>
+                                        <option>Cyprus</option>
+                                        <option>Czech Republic</option>
+                                        <option>Denmark</option>
+                                        <option>Djibouti</option>
+                                        <option>Dominica</option>
+                                        <option>Dominican Republic</option>
+                                        <option>East Timor</option>
+                                        <option>Ecuador</option>
+                                        <option>Egypt</option>
+                                        <option>El Salvador</option>
+                                        <option>Equatorial Guinea</option>
+                                        <option>Eritrea</option>
+                                        <option>Estonia</option>
+                                        <option>Eswatini</option>
+                                        <option>Ethiopia</option>
+                                        <option>Fiji</option>
+                                        <option>Finland</option>
+                                        <option>France</option>
+                                        <option>Gabon</option>
+                                        <option>Gambia</option>
+                                        <option>Georgia</option>
+                                        <option>Germany</option>
+                                        <option>Ghana</option>
+                                        <option>Greece</option>
+                                        <option>Grenada</option>
+                                        <option>Guatemala</option>
+                                        <option>Guinea</option>
+                                        <option>Guinea-Bissau</option>
+                                        <option>Guyana</option>
+                                        <option>Haiti</option>
+                                        <option>Honduras</option>
+                                        <option>Hungary</option>
+                                        <option>Iceland</option>
+                                        <option>India</option>
+                                        <option>Indonesia</option>
+                                        <option>Iran</option>
+                                        <option>Iraq</option>
+                                        <option>Ireland</option>
+                                        <option>Israel</option>
+                                        <option>Italy</option>
+                                        <option>Jamaica</option>
+                                        <option>Japan</option>
+                                        <option>Jordan</option>
+                                        <option>Kazakhstan</option>
+                                        <option>Kenya</option>
+                                        <option>Kiribati</option>
+                                        <option>Kuwait</option>
+                                        <option>Kyrgyzstan</option>
+                                        <option>Laos</option>
+                                        <option>Latvia</option>
+                                        <option>Lebanon</option>
+                                        <option>Lesotho</option>
+                                        <option>Liberia</option>
+                                        <option>Libya</option>
+                                        <option>Liechtenstein</option>
+                                        <option>Lithuania</option>
+                                        <option>Luxembourg</option>
+                                        <option>Madagascar</option>
+                                        <option>Malawi</option>
+                                        <option>Malaysia</option>
+                                        <option>Maldives</option>
+                                        <option>Mali</option>
+                                        <option>Malta</option>
+                                        <option>Marshall Islands</option>
+                                        <option>Mauritania</option>
+                                        <option>Mauritius</option>
+                                        <option>Mexico</option>
+                                        <option>Micronesia</option>
+                                        <option>Moldova</option>
+                                        <option>Monaco</option>
+                                        <option>Mongolia</option>
+                                        <option>Montenegro</option>
+                                        <option>Morocco</option>
+                                        <option>Mozambique</option>
+                                        <option>Myanmar</option>
+                                        <option>Namibia</option>
+                                        <option>Nauru</option>
+                                        <option>Nepal</option>
+                                        <option>Netherlands</option>
+                                        <option>New Zealand</option>
+                                        <option>Nicaragua</option>
+                                        <option>Niger</option>
+                                        <option>Nigeria</option>
+                                        <option>North Macedonia</option>
+                                        <option>Norway</option>
+                                        <option>Oman</option>
+                                        <option>Pakistan</option>
+                                        <option>Palau</option>
+                                        <option>Palestine</option>
+                                        <option>Panama</option>
+                                        <option>Papua New Guinea</option>
+                                        <option>Paraguay</option>
+                                        <option>Peru</option>
+                                        <option>Philippines</option>
+                                        <option>Poland</option>
+                                        <option>Portugal</option>
+                                        <option>Qatar</option>
+                                        <option>Romania</option>
+                                        <option>Russia</option>
+                                        <option>Rwanda</option>
+                                        <option>Saint Kitts and Nevis</option>
+                                        <option>Saint Lucia</option>
+                                        <option>Saint Vincent and the Grenadines</option>
+                                        <option>Samoa</option>
+                                        <option>San Marino</option>
+                                        <option>Sao Tome and Principe</option>
+                                        <option>Saudi Arabia</option>
+                                        <option>Senegal</option>
+                                        <option>Serbia</option>
+                                        <option>Seychelles</option>
+                                        <option>Sierra Leone</option>
+                                        <option>Singapore</option>
+                                        <option>Slovakia</option>
+                                        <option>Slovenia</option>
+                                        <option>Solomon Islands</option>
+                                        <option>Somalia</option>
+                                        <option>South Africa</option>
+                                        <option>South Korea</option>
+                                        <option>South Sudan</option>
+                                        <option>Spain</option>
+                                        <option>Sri Lanka</option>
+                                        <option>Sudan</option>
+                                        <option>Suriname</option>
+                                        <option>Sweden</option>
+                                        <option>Switzerland</option>
+                                        <option>Syria</option>
+                                        <option>Tajikistan</option>
+                                        <option>Tanzania</option>
+                                        <option>Thailand</option>
+                                        <option>Togo</option>
+                                        <option>Tonga</option>
+                                        <option>Trinidad and Tobago</option>
+                                        <option>Tunisia</option>
+                                        <option>Turkey</option>
+                                        <option>Turkmenistan</option>
+                                        <option>Tuvalu</option>
+                                        <option>Uganda</option>
+                                        <option>Ukraine</option>
+                                        <option>United Arab Emirates</option>
+                                        <option>United Kingdom</option>
+                                        <option>United States</option>
+                                        <option>Uruguay</option>
+                                        <option>Uzbekistan</option>
+                                        <option>Vanuatu</option>
+                                        <option>Vatican City</option>
+                                        <option>Venezuela</option>
+                                        <option>Vietnam</option>
+                                        <option>Yemen</option>
+                                        <option>Zambia</option>
+                                        <option>Zimbabwe</option>
+                                    </select>
+                                    <span class="error-message text-xs text-red-600 dark:text-red-400 hidden">Please
+                                        select a nationality</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200"
+                                        id="form-college">Intended
+                                        College</label>
+                                    <select name="college"
+                                        class="w-full rounded-lg border-[#e7ebf3] dark:border-gray-700 dark:bg-gray-800 focus:border-primary focus:ring-primary"
+                                        id="college" onchange="populateDepartments()" required>
+                                        <option value="" disabled selected id="form-select-college">Select College
+                                        </option>
+                                        <option value="islamic_studies">Islamic Studies College</option>
+                                        <option value="arts_humanities">Arts and Humanities College</option>
+                                        <option value="sharia_law">Sharia and Law College</option>
+                                        <option value="business_economics">Business and Economics College</option>
+                                        <option value="educational_sciences">Educational Sciences College</option>
+                                        <option value="media">Media College</option>
+                                        <option value="computer_science">Computer Science and IT</option>
+                                        <option value="centers">Centers</option>
+                                    </select>
+                                    <span class="error-message text-xs text-red-600 dark:text-red-400 hidden">Please
+                                        select a college</span>
+                                </div>
+                                <div class="space-y-2" id="departmentContainer" style="display: none;">
+                                    <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200"
+                                        id="form-department">Department</label>
+                                    <select name="department" id="departmentSelect"
+                                        class="w-full rounded-lg border-[#e7ebf3] dark:border-gray-700 dark:bg-gray-800 focus:border-primary focus:ring-primary"
+                                        required>
+                                        <option id="form-select-department">Select Department</option>
+                                    </select>
+                                    <span class="error-message text-xs text-red-600 dark:text-red-400 hidden">Please
+                                        select a department</span>
+                                </div>
+
+                                <script>
+                                    function populateDepartments() {
+                                        const collegeSelect = document.getElementById('college');
+                                        const departmentSelect = document.getElementById('departmentSelect');
+                                        const departmentContainer = document.getElementById('departmentContainer');
+                                        const selectedCollege = collegeSelect.value;
+
+                                        let departments = [];
+
+                                        switch (selectedCollege) {
+                                            case 'islamic_studies':
+                                                departments = [
+                                                    'General Islamic Studies',
+                                                    'Quran and Its Sciences',
+                                                    'Creed and Contemporary Sects',
+                                                    'Prophetic Tradition and Its Sciences',
+                                                    'Dawah and Islamic Culture'
+                                                ];
+                                                break;
+                                            case 'arts_humanities':
+                                                departments = [
+                                                    'Arabic Language and Literature',
+                                                    'English Language and Literature',
+                                                    'French Language and Literature',
+                                                    'History and Islamic Civilization',
+                                                    'Tourism Guidance',
+                                                    'International Relations and Political Science'
+                                                ];
+                                                break;
+                                            case 'sharia_law':
+                                                departments = [
+                                                    'Sharia and Law',
+                                                    'Islamic Judiciary',
+                                                    'Fiqh and Its Principles'
+                                                ];
+                                                break;
+                                            case 'business_economics':
+                                                departments = [
+                                                    'Business Administration',
+                                                    'Project Management',
+                                                    'Human Resource Management',
+                                                    'Quality Management',
+                                                    'Islamic Economics and Banking',
+                                                    'Accounting',
+                                                    'Marketing',
+                                                    'Hospital Management'
+                                                ];
+                                                break;
+                                            case 'educational_sciences':
+                                                departments = [
+                                                    'General Educational Sciences',
+                                                    'Educational Administration',
+                                                    'Special Education',
+                                                    'Family Counseling',
+                                                    'Educational Psychology',
+                                                    'Mental Health',
+                                                    'Curriculum and Teaching Methods',
+                                                    'Environmental Education'
+                                                ];
+                                                break;
+                                            case 'media':
+                                                departments = [
+                                                    'Media and Public Relations',
+                                                    'Journalism',
+                                                    'Radio and Television',
+                                                    'Digital Media',
+                                                    'Public Relations'
+                                                ];
+                                                break;
+                                            case 'computer_science':
+                                                departments = [
+                                                    'Computer Science',
+                                                    'Information Technology',
+                                                    'Management Information Systems',
+                                                    'Cybersecurity',
+                                                    'Artificial Intelligence'
+                                                ];
+                                                break;
+                                            case 'centers':
+                                                departments = [
+                                                    'Measurement and Evaluation Center',
+                                                    'Training and Community Service Center',
+                                                    'Research and Studies Center',
+                                                    'Islamic Dawah Center'
+                                                ];
+                                                break;
+                                        }
+
+                                        departmentSelect.innerHTML = '';
+                                        departments.forEach(department => {
+                                            const option = document.createElement('option');
+                                            option.textContent = department;
+                                            departmentSelect.appendChild(option);
+                                        });
+
+                                        departmentContainer.style.display = departments.length > 0 ? 'block' : 'none';
+                                    }
+                                </script>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200"
+                                    id="form-whatsapp">WhatsApp
+                                    Number</label>
+                                <input
+                                    class="w-full rounded-lg border-[#e7ebf3] dark:border-gray-700 dark:bg-gray-800 focus:border-primary focus:ring-primary"
+                                    placeholder="e.g. +967712345678" id="form-whatsapp-placeholder" name="whatsapp"
+                                    type="tel" required />
+                                <span class="error-message text-xs text-red-600 dark:text-red-400 hidden">Valid WhatsApp
+                                    number is required</span>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-lg font-bold text-[#0d121b] dark:text-white flex items-center gap-2"
+                                        id="form-upload-title">
+                                        <span class="material-symbols-outlined">upload_file</span>
+                                        Document Upload
+                                    </h3>
+                                    <div class="flex items-center gap-2 text-xs text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full border border-green-200 dark:border-green-800"
+                                        id="form-secure-submit">
+                                        <span class="material-symbols-outlined text-xs">encrypted</span>
+                                        <span class="font-bold">Secure Submission</span>
+                                    </div>
+                                </div>
+                                <div class="border-2 border-dashed border-[#cfd7e7] dark:border-gray-700 rounded-xl p-10 flex flex-col items-center justify-center bg-[#f8f9fc] dark:bg-gray-800/30 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors cursor-pointer group"
+                                    onclick="document.getElementById('fileInput').click();">
+                                    <div
+                                        class="size-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-3xl">cloud_upload</span>
+                                    </div>
+                                    <p class="text-base font-bold text-[#0d121b] dark:text-white mb-1"
+                                        id="form-upload-desc">Upload Passport
+                                        &amp; Previous Certificates</p>
+                                    <p class="text-sm text-[#4c669a] dark:text-gray-400" id="form-upload-hint">Drag
+                                        &amp; drop files here, or
+                                        click to browse</p>
+                                    <input id="fileInput" class="hidden" type="file" name="documents"
+                                        accept=".pdf, .jpg, .jpeg, .png" multiple onchange="handleFiles(this.files)" />
+                                </div>
+                                <span class="error-message text-xs text-red-600 dark:text-red-400 hidden"
+                                    id="form-file-error">You must upload exactly 3 files</span>
+                                <div id="fileList" class="space-y-3"></div>
+                            </div>
+
+                            <script>
+                                const minFiles = 3;
+                                const maxFiles = 3;
+                                const fileList = document.getElementById('fileList');
+
+                                function handleFiles(files) {
+                                    if (files.length < minFiles) {
+                                        document.getElementById('fileError').textContent = `You must upload at least ${minFiles} files.`;
+                                        document.getElementById('fileError').classList.remove('hidden');
+                                        return;
+                                    }
+                                    if (files.length > maxFiles) {
+                                        document.getElementById('fileError').textContent = `You can only upload up to ${maxFiles} files.`;
+                                        document.getElementById('fileError').classList.remove('hidden');
+                                        return;
+                                    }
+
+                                    document.getElementById('fileError').classList.add('hidden');
+                                    fileList.innerHTML = '';
+                                    Array.from(files).forEach(file => {
+                                        const listItem = document.createElement('div');
+                                        listItem.className = 'flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-[#e7ebf3] dark:border-gray-700 rounded-lg';
+                                        listItem.innerHTML = `
+                                            <div class="flex items-center gap-3">
+                                                <span class="material-symbols-outlined text-primary">description</span>
+                                                <div>
+                                                    <p class="text-sm font-bold">${file.name}</p>
+                                                    <div class="flex items-center gap-2">
+                                                        <p class="text-xs text-[#4c669a]">${(file.size / 1024).toFixed(1)} KB • Uploaded</p>
+                                                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 font-bold flex items-center gap-1">
+                                                            <span class="material-symbols-outlined text-[10px]">cloud_done</span>
+                                                            Stored
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 p-2 rounded-full transition-colors" type="button" onclick="removeFile(this)">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button>
+                                        `;
+                                        fileList.appendChild(listItem);
+                                    });
+                                }
+
+                                function removeFile(button) {
+                                    const item = button.parentElement;
+                                    item.remove();
+                                    document.getElementById('fileInput').value = '';
+                                }
+                            </script>
+                            <div class="space-y-4 mb-6">
+                                <div
+                                    class="flex items-start gap-3 p-4 bg-white dark:bg-gray-800 rounded-lg border border-[#e7ebf3] dark:border-gray-700 hover:border-primary/30 transition-colors">
+                                    <input
+                                        class="w-5 h-5 mt-0.5 accent-primary rounded cursor-pointer appearance-none border-2 border-[#cfd7e7] dark:border-gray-600 checked:bg-primary checked:border-primary transition-all hover:border-primary/60"
+                                        id="paymentAgreement" name="payment_agreement" type="checkbox" required />
+                                    <label class="text-sm text-[#0d121b] dark:text-gray-200 cursor-pointer font-medium"
+                                        for="paymentAgreement" id="form-payment-agreement">
+                                        I agree to pay the application fee and accept the university's payment terms and
+                                        conditions.
+                                    </label>
+                                </div>
+                                <span class="error-message text-xs text-red-600 dark:text-red-400 hidden"
+                                    id="paymentError">Payment agreement must be accepted</span>
+                                <div
+                                    class="flex items-start gap-3 p-4 bg-white dark:bg-gray-800 rounded-lg border border-[#e7ebf3] dark:border-gray-700 hover:border-primary/30 transition-colors">
+                                    <input
+                                        class="w-5 h-5 mt-0.5 accent-primary rounded cursor-pointer appearance-none border-2 border-[#cfd7e7] dark:border-gray-600 checked:bg-primary checked:border-primary transition-all hover:border-primary/60"
+                                        id="systemAgreement" name="system_agreement" type="checkbox" required />
+                                    <label class="text-sm text-[#0d121b] dark:text-gray-200 cursor-pointer font-medium"
+                                        for="systemAgreement" id="form-system-agreement">
+                                        I agree to comply with the college's academic system, policies, and regulations.
+                                    </label>
+                                </div>
+                                <span class="error-message text-xs text-red-600 dark:text-red-400 hidden"
+                                    id="systemError">System agreement must be accepted</span>
+                            </div>
+                            <div
+                                class="pt-8 border-t border-[#e7ebf3] dark:border-gray-800 flex justify-end items-center">
+                                <div class="flex gap-4">
+                                    <button
+                                        class="bg-primary hover:bg-blue-700 text-white px-10 py-2.5 text-sm font-bold rounded-lg transition-all shadow-md flex items-center gap-2"
+                                        type="submit" id="form-submit">
+                                        Save
+                                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <!-- Loading Modal -->
+                        <div class="hidden fixed inset-0 z-[100] bg-black/60 flex items-center justify-center p-4"
+                            id="loading-modal">
+                            <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full p-8 shadow-2xl">
+                                <div class="flex flex-col items-center text-center">
+                                    <div
+                                        class="size-20 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-6 animate-spin">
+                                        <span class="material-symbols-outlined text-4xl">cloud_sync</span>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-[#0d121b] dark:text-white mb-2"
+                                        id="form-loading">Submitting
+                                        Application</h3>
+                                    <p class="text-[#4c669a] dark:text-gray-400 mb-4" id="form-loading-desc">Please wait
+                                        while we securely
+                                        process your application...</p>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full animate-pulse" style="width: 100%">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Error Modal -->
+                        <div class="hidden fixed inset-0 z-[100] bg-black/60 flex items-center justify-center p-4"
+                            id="error-modal">
+                            <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full p-8 shadow-2xl">
+                                <a class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 cursor-pointer"
+                                    onclick="closeErrorModal()">
+                                    <span class="material-symbols-outlined">close</span>
+                                </a>
+                                <div class="flex flex-col items-center text-center">
+                                    <div
+                                        class="size-20 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mb-6">
+                                        <span class="material-symbols-outlined text-4xl">error</span>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-[#0d121b] dark:text-white mb-2"
+                                        id="form-error-title">Submission Failed
+                                    </h3>
+                                    <p class="text-[#4c669a] dark:text-gray-400 mb-4" id="form-error-desc">An error
+                                        occurred. Please try again.</p>
+                                    <button onclick="closeErrorModal()"
+                                        class="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-sm font-bold rounded-lg transition-all"
+                                        id="form-try-again">
+                                        Try Again
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbze9Kie0j_9vzhoXwodX97KEUd-WO0ZnOaOdbLyUsYsdIHOcT3UwJw1vu7CI5iNWY9Lyw/exec";
+
+                            function validateForm() {
+                                let isValid = true;
+                                const form = document.getElementById('applicationForm');
+                                const inputs = form.querySelectorAll('[required]');
+
+                                inputs.forEach(input => {
+                                    const errorMsg = input.closest('.space-y-2')?.querySelector('.error-message');
+                                    if (!errorMsg) return;
+
+                                    if (input.type === 'checkbox') {
+                                        if (!input.checked) {
+                                            errorMsg.classList.remove('hidden');
+                                            isValid = false;
+                                        } else {
+                                            errorMsg.classList.add('hidden');
+                                        }
+                                    } else if (input.value.trim() === '') {
+                                        errorMsg.classList.remove('hidden');
+                                        isValid = false;
+                                    } else {
+                                        errorMsg.classList.add('hidden');
+                                    }
+                                });
+
+                                if (document.getElementById('fileInput').files.length !== 3) {
+                                    document.getElementById('fileError').classList.remove('hidden');
+                                    isValid = false;
+                                } else {
+                                    document.getElementById('fileError').classList.add('hidden');
+                                }
+
+                                return isValid;
+                            }
+
+                            function closeErrorModal() {
+                                document.getElementById('error-modal').classList.add('hidden');
+                            }
+
+                            document.getElementById('applicationForm').addEventListener('submit', async function (e) {
+                                e.preventDefault();
+
+                                if (!validateForm()) {
+                                    alert('Please fill all required fields correctly');
+                                    return;
+                                }
+
+                                const files = document.getElementById('fileInput').files;
+
+                                if (files.length !== 3) {
+                                    alert("You must upload exactly 3 files");
+                                    return;
+                                }
+
+                                document.getElementById('loading-modal').classList.remove('hidden');
+                                document.getElementById('submitBtn').disabled = true;
+
+                                const toBase64 = (file) => new Promise(resolve => {
+                                    const reader = new FileReader();
+                                    reader.onload = () => resolve({
+                                        name: file.name,
+                                        data: reader.result
+                                    });
+                                    reader.readAsDataURL(file);
+                                });
+
+                                try {
+                                    const encodedFiles = await Promise.all([...files].map(toBase64));
+
+                                    const payload = {
+                                        ar_name: document.querySelector('input[name="ar_name"]').value,
+                                        en_name: document.querySelector('input[name="en_name"]').value,
+                                        nationality: document.querySelector('select[name="nationality"]').value,
+                                        college: document.querySelector('select[name="college"]').value,
+                                        department: document.querySelector('select[name="department"]').value,
+                                        whatsapp: document.querySelector('input[name="whatsapp"]').value,
+                                        payment_agreement: document.querySelector('input[name="payment_agreement"]').checked ? "Yes" : "No",
+                                        system_agreement: document.querySelector('input[name="system_agreement"]').checked ? "Yes" : "No",
+                                        files: encodedFiles
+                                    };
+
+                                    const response = await fetch(SCRIPT_URL, {
+                                        method: "POST",
+                                        body: JSON.stringify(payload)
+                                    });
+
+                                    if (!response.ok) throw new Error('Server error');
+
+                                    document.getElementById('loading-modal').classList.add('hidden');
+                                    document.getElementById('success-modal').classList.remove('hidden');
+                                    this.reset();
+                                    document.getElementById('fileList').innerHTML = "";
+                                } catch (err) {
+                                    console.error(err);
+                                    document.getElementById('loading-modal').classList.add('hidden');
+                                    document.getElementById('error-message').textContent = err.message || 'Network error. Please check your connection and try again.';
+                                    document.getElementById('error-modal').classList.remove('hidden');
+                                    document.getElementById('submitBtn').disabled = false;
+                                }
+                            });
+                        </script>
+
+
+
+                    </div>
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800/80 px-8 py-4 flex items-center justify-center gap-8 border-t border-[#e7ebf3] dark:border-gray-700">
+                        <div class="flex items-center gap-2 text-[#4c669a] dark:text-gray-400">
+                            <span class="material-symbols-outlined text-lg">encrypted</span>
+                            <span class="text-xs font-medium uppercase tracking-tighter">Secure 256-bit
+                                Encryption</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[#4c669a] dark:text-gray-400">
+                            <span class="material-symbols-outlined text-lg">verified_user</span>
+                            <span class="text-xs font-medium uppercase tracking-tighter">RIU Registrar Verified</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <div class="hidden fixed inset-0 z-[100] bg-black/60 items-center justify-center flex p-4" id="success-modal">
+            <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full p-8 shadow-2xl relative">
+                <a class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200" href="#">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                <div class="flex flex-col items-center text-center">
+                    <div
+                        class="size-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-4xl">cloud_done</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#0d121b] dark:text-white mb-2">Data Successfully Saved</h3>
+                    <p class="text-[#4c669a] dark:text-gray-400 mb-8">Your application data and documents have been
+                        securely transmitted and stored in the University's cloud storage system.</p>
+                    <div
+                        class="w-full bg-[#f8f9fc] dark:bg-gray-800 rounded-xl p-5 mb-8 border border-[#e7ebf3] dark:border-gray-700">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Storage Destination</span>
+                                <span class="text-sm font-bold text-primary">University Secure Cloud</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Document Status</span>
+                                <span class="text-sm font-bold text-green-600">Verified &amp; Stored</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex gap-4 w-full">
+                        <a class="flex-1 bg-primary hover:bg-blue-700 text-white py-3 text-sm font-bold rounded-lg transition-all text-center no-underline"
+                            href="#"
+                            onclick="document.getElementById('success-modal').classList.add('hidden'); return false;">
+                            Done
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-[#121e20] text-white pt-20 pb-10 border-t border-gray-800">
+            <div class="container mx-auto px-4 md:px-10 max-w-[1440px]">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    <!-- Col 1: Brand -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 text-white">
+                            <div class="size-10 flex items-center justify-center rounded-full bg-white/10 text-white">
+                                <span class="material-symbols-outlined text-[24px]">school</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-lg font-bold leading-tight">RIU</span>
+                                <span class="text-[10px] font-medium opacity-70">جامعة ربانيين العالمية</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6" id="footer-brand-desc">
+                            Bridging the gap between traditional Islamic knowledge and modern academic disciplines
+                            through a
+                            rigorous, US-licensed curriculum.
+                        </p>
+                        <div class="flex gap-4">
+                            <a class="text-gray-400 hover:text-white transition-colors"
+                                href="https://www.facebook.com/profile.php?id=100095530594058"><span
+                                    class="sr-only">Facebook</span>
+                                <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a class="text-gray-400 hover:text-white transition-colors"
+                                href="https://t.me/AFBuniversity"><span class="sr-only">Telegram</span>
+                                <svg width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                    fill="#9ca3af" class="bi bi-telegram">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z">
+                                        </path>
+                                    </g>
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Academics -->
+                    <div>
+                        <h4 class="text-white font-bold mb-6 font-display" id="footer-academics">Academics</h4>
+                        <ul class="space-y-4 text-sm text-gray-400">
+                            <li><a class="hover:text-primary transition-colors" href="#"
+                                    id="footer-undergrad">Undergraduate
+                                    Programs</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-graduate">Graduate
+                                    Studies</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-phd">PhD
+                                    Research</a>
+                            </li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-islamic">Islamic
+                                    Studies</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-digital">Digital
+                                    Humanities</a></li>
+                        </ul>
+                    </div>
+                    <!-- Col 3: Quick Links -->
+                    <div>
+                        <h4 class="text-white font-bold mb-6 font-display" id="footer-quick">Quick Links</h4>
+                        <ul class="space-y-4 text-sm text-gray-400">
+                            <li><a class="hover:text-primary transition-colors" href="#"
+                                    id="footer-admissions">Admissions
+                                    Portal</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-calendar">Academic
+                                    Calendar</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-library">Library
+                                    &amp;
+                                    Resources</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-alumni">Alumni
+                                    Network</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#" id="footer-verify">Verify
+                                    Degree</a></li>
+                        </ul>
+                    </div>
+                    <!-- Col 4: Contact -->
+                    <div>
+                        <h4 class="text-white font-bold mb-6 font-display" id="footer-contact">Contact Us</h4>
+                        <ul class="space-y-4 text-sm text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <!-- <span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<span>123 Academic Avenue, Knowledge District, USA</span>
+</li> -->
+                            <li class="flex items-center gap-3">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <title>whatsapp [#128]</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs> </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Dribbble-Light-Preview"
+                                                transform="translate(-300.000000, -7599.000000)" fill="#135d6c">
+                                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                    <path
+                                                        d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                                                        id="whatsapp-[#128]"> </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span>+18137789708 </span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <title>whatsapp [#128]</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs> </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Dribbble-Light-Preview"
+                                                transform="translate(-300.000000, -7599.000000)" fill="#135d6c">
+                                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                    <path
+                                                        d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                                                        id="whatsapp-[#128]"> </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span>+967712236727 </span>
+                            </li>
+                            <!-- <li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+<span>admissions@riu.edu.int</span>
+</li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                    <p id="footer-copyright">© 2025 Rabbaninen International University. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a class="hover:text-white" href="#" id="footer-privacy">Privacy Policy</a>
+                        <a class="hover:text-white" href="#" id="footer-terms">Terms of Use</a>
+                        <a class="hover:text-white" href="#" id="footer-accreditation">Accreditation</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

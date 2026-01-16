@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" dir="ltr" id="htmlRoot">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RIU | Rabbaninen International University</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135d6c",
+                        "secondary": "#295A8F",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#121e20",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    boxShadow: {
+                        "float": "0 4px 12px rgba(0, 0, 0, 0.08)",
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Noto Serif', serif;
+        }
+
+        html[dir="rtl"] body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        html[dir="rtl"] * {
+            text-align: inherit;
+        }
+
+        html[dir="ltr"] body {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+    <script>
+        const translations = {
+            en: {
+                programs: "Programs",
+                admissions: "Admissions",
+                about: "About",
+                research: "Research",
+                search_placeholder: "Search courses, faculty...",
+                student_portal: "Student Portal",
+                bridging: "Bridging Tradition & Modernity",
+                university_name: "Rabbaninen International University",
+                university_arabic: "جامعة ربانيين العالمية",
+                ru_edu: "RUI EDU. -USA",
+                hero_description: "A US-Licensed Institution for Global Learners committed to academic excellence, innovative research, and ethical leadership.",
+                explore_programs: "Explore Programs",
+                watch_tour: "Watch Campus Tour",
+                license: "US License 21000012381",
+                license_desc: "Fully licensed & accredited operation",
+                degrees: "Comprehensive Degrees",
+                degrees_desc: "Diploma, Bachelor, Master & PhD",
+                global: "Global Reach",
+                global_desc: "Students from 40+ countries",
+                leadership_title: "University Leadership",
+                leadership_desc: "Guided by distinguished scholars and visionaries dedicated to fostering an environment of rigorous academic inquiry.",
+                president: "Prof. Dr. Ahmed Al-Masrawi",
+                president_role: "University President",
+                president_bio: "A renowned scholar with over 30 years of experience in higher education leadership and curriculum development.",
+                vp: "Dr. Sarah Al-Fayed",
+                vp_role: "Vice President",
+                vp_bio: "Spearheading strategic initiatives and international partnerships to expand the university's global footprint.",
+                dean: "Prof. Dr. Kareem Youssef",
+                dean_role: "Dean of Academics",
+                dean_bio: "Overseeing academic integrity and the development of our world-class research programs.",
+                pathways_title: "Flexible Learning Pathways",
+                pathways_desc: "Choose the study system that fits your lifestyle. Our adaptive model ensures quality education regardless of your location or schedule.",
+                compare_systems: "Compare Systems",
+                live_system: "Live System",
+                live_desc: "Synchronous learning with real-time interaction. Attend scheduled lectures, participate in live discussions, and engage directly with professors.",
+                interactive: "Interactive sessions",
+                structured: "Structured schedule",
+                learn_more: "Learn more",
+                selfstudy: "Self-Study System",
+                selfstudy_desc: "Asynchronous flexibility. Access pre-recorded lectures and course materials at your own pace, perfect for working professionals.",
+                access_24: "24/7 Access",
+                flexible_deadlines: "Flexible deadlines",
+                affiliate: "Affiliate System",
+                affiliate_desc: "A hybrid approach leveraging our global network of partner institutions. Combine local support with RIU's curriculum.",
+                local_centers: "Local study centers",
+                blended: "Blended learning",
+                academics: "Academics",
+                undergrad: "Undergraduate Programs",
+                graduate: "Graduate Studies",
+                phd: "PhD Research",
+                islamic: "Islamic Studies",
+                digital: "Digital Humanities",
+                quick_links: "Quick Links",
+                admissions_portal: "Admissions Portal",
+                calendar: "Academic Calendar",
+                library: "Library & Resources",
+                alumni: "Alumni Network",
+                verify: "Verify Degree",
+                contact: "Contact Us",
+                facebook: "Facebook",
+                telegram: "Telegram",
+                whatsapp: "+18137789708",
+                whatsapp2: "+967712236727",
+                bridging_footer: "Bridging the gap between traditional Islamic knowledge and modern academic disciplines through a rigorous, US-licensed curriculum.",
+                copyright: "© 2025 Rabbaninen International University. All rights reserved.",
+                privacy: "Privacy Policy",
+                terms: "Terms of Use",
+                accreditation: "Accreditation",
+                read_bio: "Read Biography →"
+            },
+            ar: {
+                programs: "البرامج",
+                admissions: "القبول",
+                about: "عن الجامعة",
+                research: "البحث العلمي",
+                search_placeholder: "ابحث عن المقررات والهيئة التدريسية...",
+                student_portal: "بوابة الطالب",
+                bridging: "الجمع بين التراث والحداثة",
+                university_name: "جامعة ربانيين العالمية",
+                university_arabic: "جامعة ربانيين العالمية",
+                ru_edu: "RUI EDU. -USA",
+                hero_description: "مؤسسة معترف بها من قبل الولايات المتحدة للمتعلمين العالميين الملتزمين بالتميز الأكاديمي والبحث العلمي المبتكر والقيادة الأخلاقية.",
+                explore_programs: "استكشف البرامج",
+                watch_tour: "شاهد جولة الحرم الجامعي",
+                license: "رخصة الولايات المتحدة 21000012381",
+                license_desc: "مؤسسة معترف بها ومعتمدة بالكامل",
+                degrees: "درجات شاملة",
+                degrees_desc: "دبلوم وبكالوريوس وماجستير ودكتوراه",
+                global: "الوصول العالمي",
+                global_desc: "طلاب من أكثر من 40 دولة",
+                leadership_title: "قيادة الجامعة",
+                leadership_desc: "يقودها علماء مميزون ورؤساء ملتزمون بتعزيز بيئة من الاستفسار الأكاديمي الصارم.",
+                president: "أ.د. أحمد المسراوي",
+                president_role: "رئيس الجامعة",
+                president_bio: "عالم مشهور له أكثر من 30 سنة من الخبرة في قيادة التعليم العالي وتطوير المناهج الدراسية.",
+                vp: "د. سارة الفايد",
+                vp_role: "نائب الرئيس",
+                vp_bio: "تقود المبادرات الاستراتيجية والشراكات الدولية لتوسيع الوجود العالمي للجامعة.",
+                dean: "أ.د. كريم يوسف",
+                dean_role: "عميد الدراسات الأكاديمية",
+                dean_bio: "يشرف على النزاهة الأكاديمية وتطوير برامج البحث العلمي العالمية.",
+                pathways_title: "مسارات التعلم المرنة",
+                pathways_desc: "اختر نظام الدراسة الذي يناسب نمط حياتك. يضمن نموذجنا التكيفي تعليماً عالي الجودة بغض النظر عن موقعك أو جدولك الزمني.",
+                compare_systems: "قارن الأنظمة",
+                live_system: "النظام المباشر",
+                live_desc: "التعلم المتزامن مع التفاعل في الوقت الفعلي. حضر المحاضرات المجدولة، شارك في النقاشات المباشرة، وتفاعل مباشرة مع الأساتذة.",
+                interactive: "جلسات تفاعلية",
+                structured: "جدول منظم",
+                learn_more: "تعرف على المزيد",
+                selfstudy: "نظام الدراسة الذاتية",
+                selfstudy_desc: "المرونة غير المتزامنة. الوصول إلى المحاضرات المسجلة ومواد الدورة بالسرعة التي تناسبك، مثالي للمهنيين العاملين.",
+                access_24: "الوصول 24/7",
+                flexible_deadlines: "مواعيد نهائية مرنة",
+                affiliate: "نظام الشراكة",
+                affiliate_desc: "نهج هجين يستفيد من شبكتنا العالمية من المؤسسات الشريكة. ادمج الدعم المحلي مع منهج جامعة ربانيين.",
+                local_centers: "مراكز الدراسة المحلية",
+                blended: "التعلم المدمج",
+                academics: "الأكاديميات",
+                undergrad: "برامج البكالوريوس",
+                graduate: "الدراسات العليا",
+                phd: "برامج الدكتوراه",
+                islamic: "الدراسات الإسلامية",
+                digital: "العلوم الإنسانية الرقمية",
+                quick_links: "روابط سريعة",
+                admissions_portal: "بوابة القبول",
+                calendar: "التقويم الأكاديمي",
+                library: "المكتبة والموارد",
+                alumni: "شبكة الخريجين",
+                verify: "التحقق من الشهادة",
+                contact: "اتصل بنا",
+                facebook: "فيسبوك",
+                telegram: "تيليجرام",
+                whatsapp: "+18137789708",
+                whatsapp2: "+967712236727",
+                bridging_footer: "سد الفجوة بين المعرفة الإسلامية التقليدية والتخصصات الأكاديمية الحديثة من خلال منهج دراسي صارم ومعترف به من قبل الولايات المتحدة.",
+                copyright: "© 2025 جامعة ربانيين العالمية. جميع الحقوق محفوظة.",
+                privacy: "سياسة الخصوصية",
+                terms: "شروط الاستخدام",
+                accreditation: "الاعتماد الأكاديمي",
+                read_bio: "اقرأ السيرة الذاتية →"
+            }
+        };
+
+        function initLanguage() {
+            const saved = localStorage.getItem('language') || 'en';
+            setLanguage(saved);
+        }
+
+        function setLanguage(lang) {
+            const html = document.getElementById('htmlRoot');
+            const dir = lang === 'ar' ? 'rtl' : 'ltr';
+            html.lang = lang;
+            html.dir = dir;
+            localStorage.setItem('language', lang);
+            updateLanguageContent(lang);
+            updatePageText(lang);
+        }
+
+        function toggleLanguage() {
+            const html = document.getElementById('htmlRoot');
+            const currentLang = html.lang;
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            setLanguage(newLang);
+        }
+
+        function updateLanguageContent(lang) {
+            const langText = document.getElementById('langText');
+            if (lang === 'ar') {
+                document.documentElement.classList.add('is-arabic');
+                langText.textContent = 'English';
+            } else {
+                document.documentElement.classList.remove('is-arabic');
+                langText.textContent = 'العربية';
+            }
+        }
+
+        function updatePageText(lang) {
+            const t = translations[lang];
+            const elements = {
+                'nav-programs': t.programs,
+                'nav-admissions': t.admissions,
+                'nav-about': t.about,
+                'nav-research': t.research,
+                'search-input': t.search_placeholder,
+                'btn-portal': t.student_portal,
+                'hero-tag': t.bridging,
+                'hero-title-ar': t.university_arabic,
+                'hero-title-en': t.university_name,
+                'hero-title-edu': t.ru_edu,
+                'hero-desc': t.hero_description,
+                'btn-explore': t.explore_programs,
+                'btn-tour': t.watch_tour,
+                'fact-license': t.license,
+                'fact-license-desc': t.license_desc,
+                'fact-degrees': t.degrees,
+                'fact-degrees-desc': t.degrees_desc,
+                'fact-global': t.global,
+                'fact-global-desc': t.global_desc,
+                'leadership-title': t.leadership_title,
+                'leadership-desc': t.leadership_desc,
+                'president-name': t.president,
+                'president-role': t.president_role,
+                'president-bio': t.president_bio,
+                'vp-name': t.vp,
+                'vp-role': t.vp_role,
+                'vp-bio': t.vp_bio,
+                'dean-name': t.dean,
+                'dean-role': t.dean_role,
+                'dean-bio': t.dean_bio,
+                'pathways-title': t.pathways_title,
+                'pathways-desc': t.pathways_desc,
+                'pathways-compare': t.compare_systems,
+                'live-title': t.live_system,
+                'live-desc': t.live_desc,
+                'live-point1': t.interactive,
+                'live-point2': t.structured,
+                'live-more': t.learn_more,
+                'study-title': t.selfstudy,
+                'study-desc': t.selfstudy_desc,
+                'study-point1': t.access_24,
+                'study-point2': t.flexible_deadlines,
+                'study-more': t.learn_more,
+                'affiliate-title': t.affiliate,
+                'affiliate-desc': t.affiliate_desc,
+                'affiliate-point1': t.local_centers,
+                'affiliate-point2': t.blended,
+                'affiliate-more': t.learn_more,
+                'footer-academics': t.academics,
+                'footer-undergrad': t.undergrad,
+                'footer-graduate': t.graduate,
+                'footer-phd': t.phd,
+                'footer-islamic': t.islamic,
+                'footer-digital': t.digital,
+                'footer-quick': t.quick_links,
+                'footer-admissions': t.admissions_portal,
+                'footer-calendar': t.calendar,
+                'footer-library': t.library,
+                'footer-alumni': t.alumni,
+                'footer-verify': t.verify,
+                'footer-contact': t.contact,
+                'footer-brand-desc': t.bridging_footer,
+                'footer-copyright': t.copyright,
+                'footer-privacy': t.privacy,
+                'footer-terms': t.terms,
+                'footer-accreditation': t.accreditation
+            };
+
+            for (const [id, text] of Object.entries(elements)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initLanguage);
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#0f181a] dark:text-white overflow-x-hidden w-full relative">
+    <!-- Top Navigation Bar -->
+    <nav
+        class="sticky top-0 z-50 w-full border-b border-[#e8f0f2] bg-white/95 backdrop-blur-sm dark:bg-[#121e20]/95 dark:border-gray-700">
+        <div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1440px] mx-auto">
+            <div class="flex items-center gap-4 md:gap-8">
+                <!-- Logo Area -->
+                <div class="flex items-center gap-3 text-primary dark:text-white">
+                    <div class="size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined text-[28px]">school</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold leading-tight tracking-tight">RIU</span>
+                        <span class="text-xs font-medium opacity-80">جامعة ربانيين العالمية</span>
+                    </div>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8 pl-8">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                            id="nav-programs">Programs</span></a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                            id="nav-admissions">Admissions</span></a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                            id="nav-about">About</span></a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+                            id="nav-research">Research</span></a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- Language Switch Button -->
+                <button
+                    class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[#0f181a] dark:text-white px-3 h-10 rounded-lg transition-colors text-sm font-medium"
+                    id="langToggle" onclick="toggleLanguage()">
+                    <span class="material-symbols-outlined text-[18px]">language</span>
+                    <span id="langText">العربية</span>
+                </button>
+                <!-- Search -->
+                <div class="hidden md:flex items-center bg-[#e8f0f2] dark:bg-gray-800 rounded-lg px-3 h-10 w-64">
+                    <span class="material-symbols-outlined text-[#538893] dark:text-gray-400 text-[20px]">search</span>
+                    <input
+                        class="bg-transparent border-none focus:ring-0 text-sm w-full ml-2 text-[#0f181a] dark:text-white placeholder:text-[#538893]"
+                        id="search-input" placeholder="Search courses, faculty..." />
+                </div>
+                <!-- CTA -->
+                <button
+                    class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 h-10 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-[18px]">account_circle</span>
+                    <span class="hidden sm:inline" id="btn-portal">Student Portal</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            data-alt="Grand university library hall with high ceilings and warm lighting representing academic excellence"
+            style="background-image: linear-gradient(rgba(19, 93, 108, 0.85), rgba(18, 30, 32, 0.7)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7bLOv51RG2FaN5S3SaHxfq7UWt-1Udd39cfwm4Y-8oJmrJwsRyhvC_zsZ-15nuBbjqcCxX6zavL3n9OB0mPZw8wMrsgMQDQqrkI6uo55mgi18Pc4gH67qZq15zbke96Aaw7IUj2xuGTP8k6_LG3ldmEXvsVxMlD85GLA912n4NpadonNr7rbdep1MIMSL_lyC1zeuLMd-zuxtuWeab0qbyFSNnX0PiGAiH2_YJu2OCEh5Za6IlS2LABJU1sUQzrJlPaxtAI5Ecw');">
+        </div>
+        <div class="relative z-10 container mx-auto px-4 md:px-10 flex flex-col items-center text-center max-w-4xl py-20"
+            style="text-align: center;">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-white/10 text-white/90 backdrop-blur-md text-xs font-bold uppercase tracking-widest border border-white/20 mb-6"
+                id="hero-tag">
+                Bridging Tradition &amp; Modernity
+            </span>
+            <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 font-display">
+                <span id="hero-title-ar">جامعة ربانيين العالمية</span> <br />
+                <span class="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 block opacity-95"
+                    id="hero-title-en">Rabbaninen International University</span>
+                <span class="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 block opacity-95" id="hero-title-edu">RUI
+                    EDU. -USA</span>
+            </h1>
+            <p class="text-white/80 text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10" id="hero-desc">
+                A US-Licensed Institution for Global Learners committed to academic excellence, innovative research, and
+                ethical leadership.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                <button
+                    class="bg-white text-primary hover:bg-gray-100 text-base font-bold h-12 px-8 rounded-lg shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                    id="btn-explore">
+                    Explore Programs
+                </button>
+                <button
+                    class="bg-transparent border border-white/30 text-white hover:bg-white/10 text-base font-bold h-12 px-8 rounded-lg transition-all flex items-center justify-center gap-2"
+                    id="btn-tour">
+                    <span class="material-symbols-outlined">play_circle</span>
+                    <span id="btn-tour-text">Watch Campus Tour</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Quick Facts / Trust Signals Bar -->
+    <section class="relative -mt-10 z-20 px-4 md:px-10 max-w-[1440px] mx-auto">
+        <div
+            class="bg-white dark:bg-[#1a2c30] rounded-xl shadow-float p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100 dark:divide-gray-700">
+            <!-- Fact 1 -->
+            <div class="flex items-center gap-4 p-2">
+                <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-[28px]">verified_user</span>
+                </div>
+                <div>
+                    <h3 class="text-primary dark:text-white font-bold text-lg leading-tight" id="fact-license">US
+                        License 21000012381</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm" id="fact-license-desc">Fully licensed &amp;
+                        accredited operation</p>
+                </div>
+            </div>
+            <!-- Fact 2 -->
+            <div class="flex items-center gap-4 p-2 md:pl-8">
+                <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-[28px]">school</span>
+                </div>
+                <div>
+                    <h3 class="text-primary dark:text-white font-bold text-lg leading-tight" id="fact-degrees">
+                        Comprehensive Degrees</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm" id="fact-degrees-desc">Diploma, Bachelor, Master
+                        &amp; PhD</p>
+                </div>
+            </div>
+            <!-- Fact 3 -->
+            <div class="flex items-center gap-4 p-2 md:pl-8">
+                <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <span class="material-symbols-outlined text-[28px]">public</span>
+                </div>
+                <div>
+                    <h3 class="text-primary dark:text-white font-bold text-lg leading-tight" id="fact-global">Global
+                        Reach</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm" id="fact-global-desc">Students from 40+
+                        countries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Leadership Section -->
+    <section class="py-20 px-4 md:px-10 max-w-[1200px] mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#0f181a] dark:text-white mb-4 font-display"
+                id="leadership-title">University Leadership</h2>
+            <div class="h-1 w-20 bg-secondary mx-auto rounded-full"></div>
+            <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" id="leadership-desc">
+                Guided by distinguished scholars and visionaries dedicated to fostering an environment of rigorous
+                academic inquiry.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Leader 1 -->
+            <div
+                class="group bg-white dark:bg-[#1a2c30] rounded-xl overflow-hidden shadow-float hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/20">
+                <div class="aspect-[4/5] w-full bg-gray-200 overflow-hidden relative">
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                        data-alt="Portrait of University President Prof. Dr. Ahmed Issa Al-Masrawi in academic regalia"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPUyjgoTImO87s3LtAeUV_L1n9T3e1dX8u7HV4n8HrvY9m7RuXk56_QD4UrYilvNyGzcfUH6LYoIz3kYuI0OwLbw9eUujeXwmPKvtR3vlum5_16CayUPZIw5GOalPMv6Ln77NIKr_Y-jtzMi-DeuFbI04Lpmc8TSjT3l_zXtjGSa7vwSR7NzCZYH3f8UgYmfBCqARZsD62w3Q7PrfskjfO0JsOnv2_CCwIQ158Zp4lyLEoy34OGj_BeLpQ2_cEts9zPd6AptpKHg');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium">Read Biography →</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-[#0f181a] dark:text-white font-display mb-1" id="president-name">
+                        Prof. Dr. Ahmed Al-Masrawi</h3>
+                    <p class="text-secondary font-medium text-sm uppercase tracking-wide" id="president-role">University
+                        President</p>
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm line-clamp-3" id="president-bio">
+                        A renowned scholar with over 30 years of experience in higher education leadership and
+                        curriculum development.
+                    </p>
+                </div>
+            </div>
+            <!-- Leader 2 -->
+            <div
+                class="group bg-white dark:bg-[#1a2c30] rounded-xl overflow-hidden shadow-float hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/20">
+                <div class="aspect-[4/5] w-full bg-gray-200 overflow-hidden relative">
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                        data-alt="Portrait of the Vice President, a distinguished academic professional"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_EwYTC_ZDSJPN7pcv1T_zbg9pCksmJ6pCkQ8QmqrJL2BjS3bm6mLiZaFyQ-usQpDWpC1evOboLjsjX7bSfj8db6U0DYj8FybtCOWdK56Dia2fXpsk0B3DlzvJbjX17lU30z9JN8ZXx7IIeDTq0qEA9ExgLA_zB9LqzhruGC59y43j1cp4wwjm-MEaFoDygyyetPbYQnXRfQUpMtvTaXvJJJ4mwtl0yNx9LW--lGJdnm0KTfq3xiIyAGRKDK1FmiHlULsEsUWQfQ');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium">Read Biography →</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-[#0f181a] dark:text-white font-display mb-1" id="vp-name">Dr.
+                        Sarah Al-Fayed</h3>
+                    <p class="text-secondary font-medium text-sm uppercase tracking-wide" id="vp-role">Vice President
+                    </p>
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm line-clamp-3" id="vp-bio">
+                        Spearheading strategic initiatives and international partnerships to expand the university's
+                        global footprint.
+                    </p>
+                </div>
+            </div>
+            <!-- Leader 3 -->
+            <div
+                class="group bg-white dark:bg-[#1a2c30] rounded-xl overflow-hidden shadow-float hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/20">
+                <div class="aspect-[4/5] w-full bg-gray-200 overflow-hidden relative">
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                        data-alt="Portrait of the Dean of Academics"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8KVc9csgO-doZkY0-9T2ZqJFafWPv7ymVGm_pfROLseG5XtthK5PJQ0a32XiX-R_OGqssHtGERvMfenzgFg5H3I3C0tiR4fzkes16RqSAnl2VcbuuJZklbFR1EkFS0dci7GEuoGTOhXq3s5Z_VMT3K1mdtyvGjsK5147G8ESRQH0truPjpOq9DrSr0WJ3LZYsLIaC8AD26mRTwajh5YnODRgLXDiD8sIulGZAjLLJEl1ImULQKhUPovVazGfJ6a-Qc0sc7BjwAg');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium">Read Biography →</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-[#0f181a] dark:text-white font-display mb-1" id="dean-name">Prof.
+                        Dr. Kareem Youssef</h3>
+                    <p class="text-secondary font-medium text-sm uppercase tracking-wide" id="dean-role">Dean of
+                        Academics</p>
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm line-clamp-3" id="dean-bio">
+                        Overseeing academic integrity and the development of our world-class research programs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Study System Roadmap -->
+    <section class="py-20 bg-gray-100 dark:bg-[#0d1617]">
+        <div class="container mx-auto px-4 md:px-10 max-w-[1200px]">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0f181a] dark:text-white mb-4 font-display"
+                        id="pathways-title">Flexible Learning Pathways</h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg" id="pathways-desc">
+                        Choose the study system that fits your lifestyle. Our adaptive model ensures quality education
+                        regardless of your location or schedule.
+                    </p>
+                </div>
+                <button class="shrink-0 text-primary font-bold hover:underline flex items-center gap-1"
+                    id="pathways-compare">
+                    Compare Systems <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- System 1: Live -->
+                <div
+                    class="bg-white dark:bg-[#1a2c30] p-8 rounded-xl shadow-sm border-t-4 border-primary hover:shadow-md transition-shadow">
+                    <div class="size-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-[32px]">video_camera_front</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#0f181a] dark:text-white mb-3" id="live-title">Live System</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed" id="live-desc">
+                        Synchronous learning with real-time interaction. Attend scheduled lectures, participate in live
+                        discussions, and engage directly with professors.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span> <span
+                                id="live-point1">Interactive sessions</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span> <span
+                                id="live-point2">Structured schedule</span>
+                        </li>
+                    </ul>
+                    <a class="text-primary text-sm font-bold flex items-center gap-1 group" href="#" id="live-more">
+                        Learn more <span
+                            class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- System 2: Self-Study -->
+                <div
+                    class="bg-white dark:bg-[#1a2c30] p-8 rounded-xl shadow-sm border-t-4 border-secondary hover:shadow-md transition-shadow">
+                    <div
+                        class="size-14 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary mb-6">
+                        <span class="material-symbols-outlined text-[32px]">auto_stories</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#0f181a] dark:text-white mb-3" id="study-title">Self-Study System
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed" id="study-desc">
+                        Asynchronous flexibility. Access pre-recorded lectures and course materials at your own pace,
+                        perfect for working professionals.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span> <span
+                                id="study-point1">24/7 Access</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span> <span
+                                id="study-point2">Flexible deadlines</span>
+                        </li>
+                    </ul>
+                    <a class="text-secondary text-sm font-bold flex items-center gap-1 group" href="#" id="study-more">
+                        Learn more <span
+                            class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- System 3: Affiliate -->
+                <div
+                    class="bg-white dark:bg-[#1a2c30] p-8 rounded-xl shadow-sm border-t-4 border-gray-400 hover:shadow-md transition-shadow">
+                    <div
+                        class="size-14 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 mb-6">
+                        <span class="material-symbols-outlined text-[32px]">hub</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#0f181a] dark:text-white mb-3" id="affiliate-title">Affiliate
+                        System</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed" id="affiliate-desc">
+                        A hybrid approach leveraging our global network of partner institutions. Combine local support
+                        with RIU's curriculum.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span> <span
+                                id="affiliate-point1">Local study centers</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span> <span
+                                id="affiliate-point2">Blended learning</span>
+                        </li>
+                    </ul>
+                    <a class="text-gray-600 dark:text-gray-300 text-sm font-bold flex items-center gap-1 group" href="#"
+                        id="affiliate-more">
+                        Learn more <span
+                            class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-[#121e20] text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-10 max-w-[1440px]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Col 1: Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6 text-white">
+                        <div class="size-10 flex items-center justify-center rounded-full bg-white/10 text-white">
+                            <span class="material-symbols-outlined text-[24px]">school</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-bold leading-tight">RIU</span>
+                            <span class="text-[10px] font-medium opacity-70">جامعة ربانيين العالمية</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" id="footer-brand-desc">
+                        Bridging the gap between traditional Islamic knowledge and modern academic disciplines through a
+                        rigorous, US-licensed curriculum.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="text-gray-400 hover:text-white transition-colors"
+                            href="https://www.facebook.com/profile.php?id=100095530594058"><span
+                                class="sr-only">Facebook</span>
+                            <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-white transition-colors"
+                            href="https://t.me/AFBuniversity"><span class="sr-only">Telegram</span>
+                            <svg width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                fill="#9ca3af" class="bi bi-telegram">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z">
+                                    </path>
+                                </g>
+                            </svg>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Academics -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-display" id="footer-academics">Academics</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-undergrad">Undergraduate
+                                Programs</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-graduate">Graduate
+                                Studies</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-phd">PhD Research</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-islamic">Islamic
+                                Studies</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-digital">Digital
+                                Humanities</a></li>
+                    </ul>
+                </div>
+                <!-- Col 3: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-display" id="footer-quick">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-admissions">Admissions
+                                Portal</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-calendar">Academic
+                                Calendar</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-library">Library &amp;
+                                Resources</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-alumni">Alumni
+                                Network</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#" id="footer-verify">Verify
+                                Degree</a></li>
+                    </ul>
+                </div>
+                <!-- Col 4: Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-display" id="footer-contact">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <!-- <span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<span>123 Academic Avenue, Knowledge District, USA</span>
+</li> -->
+                        <li class="flex items-center gap-3">
+                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>whatsapp [#128]</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs> </defs>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7599.000000)"
+                                            fill="#135d6c">
+                                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                <path
+                                                    d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                                                    id="whatsapp-[#128]"> </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>+18137789708 </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>whatsapp [#128]</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs> </defs>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7599.000000)"
+                                            fill="#135d6c">
+                                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                <path
+                                                    d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                                                    id="whatsapp-[#128]"> </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>+967712236727 </span>
+                        </li>
+                        <!-- <li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+<span>admissions@riu.edu.int</span>
+</li> -->
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <p id="footer-copyright">© 2025 Rabbaninen International University. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-white" href="#" id="footer-privacy">Privacy Policy</a>
+                    <a class="hover:text-white" href="#" id="footer-terms">Terms of Use</a>
+                    <a class="hover:text-white" href="#" id="footer-accreditation">Accreditation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
