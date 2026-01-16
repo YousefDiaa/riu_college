@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Colleges & Departments | Rabbanian University</title>
+  <meta name="description"
+    content="Discover the diverse range of Islamic and humanitarian disciplines at Rabbanian International University.">
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135d6c",
+            "secondary": "#295A8F",
+            "background-light": "#f6f8f8",
+            "background-dark": "#121e20",
+          },
+          fontFamily: {
+            "display": ["Noto Serif", "serif"],
+            "sans": ["Noto Sans", "sans-serif"],
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          boxShadow: {
+            "float": "0 4px 12px rgba(0, 0, 0, 0.08)",
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Noto Serif', serif;
+    }
+
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[dir="rtl"] * {
+      text-align: inherit;
+    }
+
+    html[dir="ltr"] body {
+      direction: ltr;
+      text-align: left;
+    }
+  </style>
+  <script>
+    const translations = {
+      en: {
+        nav_programs: "Programs",
+        nav_admissions: "Admissions",
+        nav_about: "About",
+        nav_research: "Research",
+        search_placeholder: "Search courses, faculty...",
+        btn_portal: "Student Portal",
+        page_title: "Academic Colleges & Departments",
+        page_desc: "Discover the diverse range of Islamic and humanitarian disciplines at Rabbanian International University. Explore our specialized colleges to find your path.",
+        colleges_heading: "Our Colleges",
+        colleges_subheading: "Explore our comprehensive academic offerings",
+        college_islamic: "College of Islamic Studies",
+        college_islamic_desc: "Deepen your understanding of core Islamic sciences.",
+        dept_dawah: "Department of Islamic Da'wah",
+        dept_quranic: "Department of Quranic Sciences",
+        dept_hadith: "Department of Hadith Studies",
+        dept_sunnah: "Department of Sunnah and Its Sciences",
+        dept_dawah_culture: "Department of Da'wah and Islamic Culture",
+        college_arts: "College of Arts & Humanities",
+        college_arts_desc: "Bridging cultures through language and history.",
+        dept_arabic: "Arabic Language and Literature",
+        dept_english: "English Language and Literature",
+        dept_french: "French Language and Literature",
+        dept_history: "History and Islamic Civilization",
+        dept_tourism: "Tourism Guidance",
+        dept_intl: "International Relations and Political Science",
+        college_sharia: "College of Sharia & Law",
+        college_sharia_desc: "Legal expertise rooted in justice and ethics.",
+        dept_sharia: "Sharia and Law",
+        dept_judiciary: "Islamic Judiciary",
+        dept_fiqh: "Fiqh and Its Principles",
+        college_education: "College of Educational Sciences",
+        college_education_desc: "Shaping the future of education and learning.",
+        dept_general_ed: "General Educational Sciences",
+        dept_admin: "Educational Administration",
+        dept_special: "Special Education",
+        dept_counseling: "Family Counseling",
+        dept_psychology: "Educational Psychology",
+        dept_mental: "Mental Health",
+        dept_curricula: "Curricula and Teaching Methods",
+        dept_environment: "Environmental Education",
+        college_media: "College of Media",
+        college_media_desc: "Shaping the future of media and communication.",
+        dept_media: "Media and Public Relations",
+        dept_journalism: "Journalism",
+        dept_radio: "Radio and Television",
+        dept_digital: "Digital Media",
+        dept_pr: "Public Relations",
+        college_computer: "College of Computer and Information Technology",
+        college_computer_desc: "Shaping the future of technology and innovation.",
+        dept_cs: "Computer Science",
+        dept_it: "Information Technology",
+        dept_mis: "Management Information Systems",
+        dept_cyber: "Cybersecurity",
+        dept_ai: "Artificial Intelligence",
+        college_economics: "College of Economics and Administrative Sciences",
+        college_economics_desc: "Shaping the future of business and management.",
+        dept_business: "Business Administration",
+        dept_project: "Project Management",
+        dept_hrm: "Human Resource Management",
+        dept_quality: "Quality Management",
+        dept_islamic_banking: "Economics and Islamic Banking",
+        dept_accounting: "Accounting",
+        dept_marketing: "Marketing",
+        dept_hospital: "Hospital Management",
+        college_centers: "Centers",
+        dept_measurement: "Measurement and Evaluation Center",
+        dept_training: "Training and Community Service Center",
+        dept_research: "Studies and Research Center",
+        dept_dawah_center: "Islamic Da'wah Center",
+        available_depts: "Available Departments",
+        footer_brand_desc: "Bridging the gap between traditional Islamic knowledge and modern academic disciplines through a rigorous, US-licensed curriculum.",
+        footer_academics: "Academics",
+        footer_undergrad: "Undergraduate Programs",
+        footer_graduate: "Graduate Studies",
+        footer_phd: "PhD Research",
+        footer_islamic: "Islamic Studies",
+        footer_digital: "Digital Humanities",
+        footer_quick: "Quick Links",
+        footer_admissions: "Admissions Portal",
+        footer_calendar: "Academic Calendar",
+        footer_library: "Library & Resources",
+        footer_alumni: "Alumni Network",
+        footer_verify: "Verify Degree",
+        footer_contact: "Contact Us",
+        footer_copyright: "© 2025 Rabbaninen International University. All rights reserved.",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Use",
+        footer_accreditation: "Accreditation"
+      },
+      ar: {
+        nav_programs: "البرامج",
+        nav_admissions: "القبول",
+        nav_about: "عن الجامعة",
+        nav_research: "البحث العلمي",
+        search_placeholder: "ابحث عن المقررات والهيئة التدريسية...",
+        btn_portal: "بوابة الطالب",
+        page_title: "الكليات الأكاديمية والأقسام",
+        page_desc: "اكتشف مجموعة متنوعة من التخصصات الإسلامية والإنسانية في جامعة ربانيين العالمية. استكشف كلياتنا المتخصصة للعثور على مسارك.",
+        colleges_heading: "كلياتنا",
+        colleges_subheading: "استكشف عروضنا الأكاديمية الشاملة",
+        college_islamic: "كلية الدراسات الإسلامية",
+        college_islamic_desc: "عمّق فهمك لعلوم الإسلام الأساسية.",
+        dept_dawah: "قسم الدعوة الإسلامية",
+        dept_quranic: "قسم علوم القرآن",
+        dept_hadith: "قسم دراسات الحديث",
+        dept_sunnah: "السنة النبوية وعلومها",
+        dept_dawah_culture: "الدعوة والثقافة الإسلامية",
+        college_arts: "كلية الآداب والعلوم الإنسانية",
+        college_arts_desc: "جسور الثقافات من خلال اللغة والتاريخ.",
+        dept_arabic: "اللغة العربية والأدب",
+        dept_english: "اللغة الإنجليزية والأدب",
+        dept_french: "اللغة الفرنسية والأدب",
+        dept_history: "التاريخ والحضارة الإسلامية",
+        dept_tourism: "إرشادات السياحة",
+        dept_intl: "العلاقات الدولية والعلوم السياسية",
+        college_sharia: "كلية الشريعة والقانون",
+        college_sharia_desc: "الخبرة القانونية المتجذرة في العدل والأخلاق.",
+        dept_sharia: "الشريعة والقانون",
+        dept_judiciary: "القضاء الإسلامي",
+        dept_fiqh: "الفقه وأصوله",
+        college_education: "كلية العلوم التربوية",
+        college_education_desc: "تشكيل مستقبل التعليم والتعلم.",
+        dept_general_ed: "العلوم التربوية العامة",
+        dept_admin: "الإدارة التربوية",
+        dept_special: "التربية الخاصة",
+        dept_counseling: "الإرشاد الأسري",
+        dept_psychology: "علم النفس التربوي",
+        dept_mental: "الصحة النفسية",
+        dept_curricula: "المناهج وطرق التدريس",
+        dept_environment: "التربية البيئية",
+        college_media: "كلية الإعلام",
+        college_media_desc: "تشكيل مستقبل الإعلام والاتصالات.",
+        dept_media: "الإعلام والعلاقات العامة",
+        dept_journalism: "الصحافة",
+        dept_radio: "الراديو والتلفزيون",
+        dept_digital: "الإعلام الرقمي",
+        dept_pr: "العلاقات العامة",
+        college_computer: "كلية الحاسوب وتكنولوجيا المعلومات",
+        college_computer_desc: "تشكيل مستقبل التكنولوجيا والابتكار.",
+        dept_cs: "علوم الحاسوب",
+        dept_it: "تكنولوجيا المعلومات",
+        dept_mis: "أنظمة المعلومات الإدارية",
+        dept_cyber: "الأمن السيبراني",
+        dept_ai: "الذكاء الاصطناعي",
+        college_economics: "كلية الاقتصاد والعلوم الإدارية",
+        college_economics_desc: "تشكيل مستقبل الأعمال والإدارة.",
+        dept_business: "إدارة الأعمال",
+        dept_project: "إدارة المشاريع",
+        dept_hrm: "إدارة موارد بشرية",
+        dept_quality: "إدارة الجودة",
+        dept_islamic_banking: "الاقتصاد والبنوك الإسلامية",
+        dept_accounting: "محاسبة",
+        dept_marketing: "تسويق",
+        dept_hospital: "إدارة المرافق الطبية",
+        college_centers: "المراكز",
+        dept_measurement: "مركز القياس والتقويم",
+        dept_training: "مركز التدريب وخدمة المجتمع",
+        dept_research: "مركز الدراسات والبحث العلمي",
+        dept_dawah_center: "مركز الدعوة الإسلامية",
+        available_depts: "الأقسام المتاحة",
+        footer_brand_desc: "جسر الفجوة بين المعرفة الإسلامية التقليدية والتخصصات الأكاديمية الحديثة من خلال منهج صارم ومرخص من الولايات المتحدة.",
+        footer_academics: "البرامج الأكاديمية",
+        footer_undergrad: "برامج البكالوريوس",
+        footer_graduate: "الدراسات العليا",
+        footer_phd: "بحث الدكتوراه",
+        footer_islamic: "الدراسات الإسلامية",
+        footer_digital: "العلوم الإنسانية الرقمية",
+        footer_quick: "روابط سريعة",
+        footer_admissions: "بوابة القبول",
+        footer_calendar: "التقويم الأكاديمي",
+        footer_library: "المكتبة والموارد",
+        footer_alumni: "شبكة الخريجين",
+        footer_verify: "التحقق من الدرجة العلمية",
+        footer_contact: "اتصل بنا",
+        footer_copyright: "© 2025 جامعة ربانيين العالمية. جميع الحقوق محفوظة.",
+        footer_privacy: "سياسة الخصوصية",
+        footer_terms: "شروط الاستخدام",
+        footer_accreditation: "الاعتماد الأكاديمي"
+      }
+    };
+
+    function initLanguage() {
+      const saved = localStorage.getItem('language') || 'en';
+      setLanguage(saved);
+    }
+
+    function setLanguage(lang) {
+      const html = document.getElementById('htmlRoot');
+      const dir = lang === 'ar' ? 'rtl' : 'ltr';
+      html.lang = lang;
+      html.dir = dir;
+      localStorage.setItem('language', lang);
+      updateLanguageContent(lang);
+      updatePageText(lang);
+    }
+
+    function toggleLanguage() {
+      const html = document.getElementById('htmlRoot');
+      const currentLang = html.lang;
+      const newLang = currentLang === 'en' ? 'ar' : 'en';
+      setLanguage(newLang);
+    }
+
+    function updateLanguageContent(lang) {
+      const langText = document.getElementById('langText');
+      if (lang === 'ar') {
+        document.documentElement.classList.add('is-arabic');
+        langText.textContent = 'English';
+      } else {
+        document.documentElement.classList.remove('is-arabic');
+        langText.textContent = 'العربية';
+      }
+    }
+
+    function updatePageText(lang) {
+      const t = translations[lang];
+      const elements = {
+        'nav-programs': t.nav_programs,
+        'nav-admissions': t.nav_admissions,
+        'nav-about': t.nav_about,
+        'nav-research': t.nav_research,
+        'search-input': t.search_placeholder,
+        'btn-portal': t.btn_portal,
+        'page-title': t.page_title,
+        'page-desc': t.page_desc,
+        'colleges-heading': t.colleges_heading,
+        'colleges-subheading': t.colleges_subheading,
+        'college-islamic': t.college_islamic,
+        'college-islamic-desc': t.college_islamic_desc,
+        'dept-dawah': t.dept_dawah,
+        'dept-quranic': t.dept_quranic,
+        'dept-hadith': t.dept_hadith,
+        'dept-sunnah': t.dept_sunnah,
+        'dept-dawah-culture': t.dept_dawah_culture,
+        'college-arts': t.college_arts,
+        'college-arts-desc': t.college_arts_desc,
+        'dept-arabic': t.dept_arabic,
+        'dept-english': t.dept_english,
+        'dept-french': t.dept_french,
+        'dept-history': t.dept_history,
+        'dept-tourism': t.dept_tourism,
+        'dept-intl': t.dept_intl,
+        'college-sharia': t.college_sharia,
+        'college-sharia-desc': t.college_sharia_desc,
+        'dept-sharia': t.dept_sharia,
+        'dept-judiciary': t.dept_judiciary,
+        'dept-fiqh': t.dept_fiqh,
+        'college-education': t.college_education,
+        'college-education-desc': t.college_education_desc,
+        'dept-general-ed': t.dept_general_ed,
+        'dept-admin': t.dept_admin,
+        'dept-special': t.dept_special,
+        'dept-counseling': t.dept_counseling,
+        'dept-psychology': t.dept_psychology,
+        'dept-mental': t.dept_mental,
+        'dept-curricula': t.dept_curricula,
+        'dept-environment': t.dept_environment,
+        'college-media': t.college_media,
+        'college-media-desc': t.college_media_desc,
+        'dept-media': t.dept_media,
+        'dept-journalism': t.dept_journalism,
+        'dept-radio': t.dept_radio,
+        'dept-digital': t.dept_digital,
+        'dept-pr': t.dept_pr,
+        'college-computer': t.college_computer,
+        'college-computer-desc': t.college_computer_desc,
+        'dept-cs': t.dept_cs,
+        'dept-it': t.dept_it,
+        'dept-mis': t.dept_mis,
+        'dept-cyber': t.dept_cyber,
+        'dept-ai': t.dept_ai,
+        'college-economics': t.college_economics,
+        'college-economics-desc': t.college_economics_desc,
+        'dept-business': t.dept_business,
+        'dept-project': t.dept_project,
+        'dept-hrm': t.dept_hrm,
+        'dept-quality': t.dept_quality,
+        'dept-islamic-banking': t.dept_islamic_banking,
+        'dept-accounting': t.dept_accounting,
+        'dept-marketing': t.dept_marketing,
+        'dept-hospital': t.dept_hospital,
+        'college-centers': t.college_centers,
+        'dept-measurement': t.dept_measurement,
+        'dept-training': t.dept_training,
+        'dept-research': t.dept_research,
+        'dept-dawah-center': t.dept_dawah_center,
+        'available-depts': t.available_depts,
+        'footer-brand-desc': t.footer_brand_desc,
+        'footer-academics': t.footer_academics,
+        'footer-undergrad': t.footer_undergrad,
+        'footer-graduate': t.footer_graduate,
+        'footer-phd': t.footer_phd,
+        'footer-islamic': t.footer_islamic,
+        'footer-digital': t.footer_digital,
+        'footer-quick': t.footer_quick,
+        'footer-admissions': t.footer_admissions,
+        'footer-calendar': t.footer_calendar,
+        'footer-library': t.footer_library,
+        'footer-alumni': t.footer_alumni,
+        'footer-verify': t.footer_verify,
+        'footer-contact': t.footer_contact,
+        'footer-copyright': t.footer_copyright,
+        'footer-privacy': t.footer_privacy,
+        'footer-terms': t.footer_terms,
+        'footer-accreditation': t.footer_accreditation
+      };
+
+      for (const [id, text] of Object.entries(elements)) {
+        const element = document.getElementById(id);
+        if (element) {
+          if (element.tagName === 'INPUT') {
+            element.placeholder = text;
+          } else {
+            element.textContent = text;
+          }
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initLanguage);
+  </script>
+</head>
+
+<body class="bg-white text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <nav
+    class="sticky top-0 z-50 w-full border-b border-[#e8f0f2] bg-white/95 backdrop-blur-sm dark:bg-[#121e20]/95 dark:border-gray-700">
+    <div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1440px] mx-auto">
+      <div class="flex items-center gap-4 md:gap-8">
+        <!-- Logo Area -->
+        <div class="flex items-center gap-3 text-primary dark:text-white">
+          <div class="size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+            <span class="material-symbols-outlined text-[28px]">school</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-lg font-bold leading-tight tracking-tight">RIU</span>
+            <span class="text-xs font-medium opacity-80">جامعة ربانيين العالمية</span>
+          </div>
+        </div>
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8 pl-8">
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+              id="nav-programs">Programs</span></a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+              id="nav-admissions">Admissions</span></a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+              id="nav-about">About</span></a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#"><span
+              id="nav-research">Research</span></a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <!-- Language Switch Button -->
+        <button
+          class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[#0f181a] dark:text-white px-3 h-10 rounded-lg transition-colors text-sm font-medium"
+          id="langToggle" onclick="toggleLanguage()">
+          <span class="material-symbols-outlined text-[18px]">language</span>
+          <span id="langText">العربية</span>
+        </button>
+        <!-- Search -->
+        <div class="hidden md:flex items-center bg-[#e8f0f2] dark:bg-gray-800 rounded-lg px-3 h-10 w-64">
+          <span class="material-symbols-outlined text-[#538893] dark:text-gray-400 text-[20px]">search</span>
+          <input
+            class="bg-transparent border-none focus:ring-0 text-sm w-full ml-2 text-[#0f181a] dark:text-white placeholder:text-[#538893]"
+            id="search-input" placeholder="Search courses, faculty..." />
+        </div>
+        <!-- CTA -->
+        <button
+          class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 h-10 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">account_circle</span>
+          <span class="hidden sm:inline" id="btn-portal">Student Portal</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-1 text-sm text-gray-500 mb-6">
+        <a href="#" class="hover:text-gray-800 transition-colors">Home</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="#" class="hover:text-gray-800 transition-colors">Academics</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-800">Directory</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3" id="page-title">
+          Academic Colleges & Departments
+        </h1>
+        <p class="text-gray-500 max-w-2xl" id="page-desc">
+          Discover the diverse range of Islamic and humanitarian disciplines at Rabbanian
+          International University. Explore our specialized colleges to find your path.
+        </p>
+      </div>
+
+      <!-- Colleges Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-12" id="colleges-grid">
+
+        <!-- College 1 - Islamic Studies (with departments) -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-islamic">College of Islamic Studies</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-islamic-desc">Deepen your understanding of core
+                Islamic sciences.</p>
+            </div>
+            <div class="text-gray-400 chevron-icon">
+              <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide" id="available-depts">Available
+                Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-dawah">Department of Islamic Da'wah</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-quranic">Department of Quranic Sciences</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-hadith">Department of Hadith Studies</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-sunnah">Department of Sunnah and Its Sciences</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-dawah-culture">Department of Da'wah and Islamic
+                Culture</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- College 2 - Arts & Humanities -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-arts">College of Arts & Humanities</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-arts-desc">Bridging cultures through language and
+                history.</p>
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-arabic">Arabic Language and Literature</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-english">English Language and Literature</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-french">French Language and Literature</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-history">History and Islamic Civilization</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-tourism">Tourism Guidance</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-intl">International Relations and Political Science</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- College 3 - Sharia & Law -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-sharia">College of Sharia & Law</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-sharia-desc">Legal expertise rooted in justice and
+                ethics.</p>
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-sharia">Sharia and Law</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-judiciary">Islamic Judiciary</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-fiqh">Fiqh and Its Principles</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- College 4 - Education Sciences -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-education">College of Educational Sciences</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-education-desc">Shaping the future of education and
+                learning.</p>
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-general-ed">General Educational Sciences</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-admin">Educational Administration</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-special">Special Education</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-counseling">Family Counseling</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-psychology">Educational Psychology</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-mental">Mental Health</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-curricula">Curricula and Teaching Methods</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-environment">Environmental Education</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- College 5 - college of media -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Icon: a simple newspaper / media -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2zM16 3v4M8 3v4M3 11h18" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-media">College of Media</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-media-desc">Shaping the future of media and
+                communication.</p>
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-media">Media and Public Relations</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-journalism">Journalism</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-radio">Radio and Television</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-digital">Digital Media</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-pr">Public Relations</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- College 6 - Computer and Information Technology -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Icon: a computer/laptop -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.75 17h4.5M4 6h16v10H4V6zM2 18h20" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-computer">College of Computer and Information
+                Technology</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-computer-desc">Shaping the future of technology and
+                innovation.</p>
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-cs">Computer Science</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-it">Information Technology</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-mis">Management Information Systems</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-cyber">Cybersecurity</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-ai">Artificial Intelligence</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- College 4 - conomics and Administrative Sciences-->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Icon: chart line -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M3 13l4-4 4 4 8-8" />
+              </svg>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-economics">College of Economics and Administrative
+                Sciences</h3>
+              <p class="text-sm text-gray-500 mt-0.5" id="college-economics-desc">Shaping the future of business and
+                management.</p>
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-business">Business Administration</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-project">Project Management</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-hrm">Human Resource Management</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-quality">Quality Management</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-islamic-banking">Economics and Islamic Banking</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-accounting">Accounting</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-marketing">Marketing</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-hospital">Hospital Management</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- College 7- Centers -->
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden college-card">
+          <button onclick="toggleCollege(this)"
+            class="w-full p-4 flex items-start gap-4 text-left hover:bg-gray-50 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Icon: a building / organization -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 21v-8a1 1 0 011-1h16a1 1 0 011 1v8M5 21V9a1 1 0 011-1h12a1 1 0 011 1v12M9 21V12h6v9" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-gray-800" id="college-centers">Centers</h3>
+
+            </div>
+            <div class="text-gray-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div
+            class="departments-list border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 px-4 py-2">
+            <div class="px-4 py-2">
+              <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">Available Departments</span>
+            </div>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-measurement">Measurement and Evaluation Center</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-training">Training and Community Service Center</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800" id="dept-research">Studies and Research Center</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#"
+              class="flex items-center justify-between px-4 py-3 border-t border-gray-200 hover:bg-gray-50 transition-colors group">
+              <span class="text-sm text-gray-800">Islamic Da‘wah Center</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#121e20] text-white pt-20 pb-10 border-t border-gray-800">
+    <div class="container mx-auto px-4 md:px-10 max-w-[1440px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Col 1: Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-6 text-white">
+            <div class="size-10 flex items-center justify-center rounded-full bg-white/10 text-white">
+              <span class="material-symbols-outlined text-[24px]">school</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-lg font-bold leading-tight">RIU</span>
+              <span class="text-[10px] font-medium opacity-70">جامعة ربانيين العالمية</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6" id="footer-brand-desc">
+            Bridging the gap between traditional Islamic knowledge and modern academic disciplines through a
+            rigorous, US-licensed curriculum.
+          </p>
+          <div class="flex gap-4">
+            <a class="text-gray-400 hover:text-white transition-colors"
+              href="https://www.facebook.com/profile.php?id=100095530594058"><span class="sr-only">Facebook</span>
+              <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                </path>
+              </svg>
+            </a>
+            <a class="text-gray-400 hover:text-white transition-colors" href="https://t.me/AFBuniversity"><span
+                class="sr-only">Telegram</span>
+              <svg width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#9ca3af"
+                class="bi bi-telegram">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z">
+                  </path>
+                </g>
+              </svg>
+
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Academics -->
+        <div>
+          <h4 class="text-white font-bold mb-6 font-display" id="footer-academics">Academics</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-undergrad">Undergraduate
+                Programs</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-graduate">Graduate
+                Studies</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-phd">PhD Research</a>
+            </li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-islamic">Islamic
+                Studies</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-digital">Digital
+                Humanities</a></li>
+          </ul>
+        </div>
+        <!-- Col 3: Quick Links -->
+        <div>
+          <h4 class="text-white font-bold mb-6 font-display" id="footer-quick">Quick Links</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-admissions">Admissions
+                Portal</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-calendar">Academic
+                Calendar</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-library">Library &amp;
+                Resources</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-alumni">Alumni
+                Network</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#" id="footer-verify">Verify
+                Degree</a></li>
+          </ul>
+        </div>
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="text-white font-bold mb-6 font-display" id="footer-contact">Contact Us</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-start gap-3">
+              <!-- <span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<span>123 Academic Avenue, Knowledge District, USA</span>
+</li> -->
+            <li class="flex items-center gap-3">
+              <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>whatsapp [#128]</title>
+                  <desc>Created with Sketch.</desc>
+                  <defs> </defs>
+                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7599.000000)" fill="#135d6c">
+                      <g id="icons" transform="translate(56.000000, 160.000000)">
+                        <path
+                          d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                          id="whatsapp-[#128]"> </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <span>+18137789708 </span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>whatsapp [#128]</title>
+                  <desc>Created with Sketch.</desc>
+                  <defs> </defs>
+                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7599.000000)" fill="#135d6c">
+                      <g id="icons" transform="translate(56.000000, 160.000000)">
+                        <path
+                          d="M259.821,7453.12124 C259.58,7453.80344 258.622,7454.36761 257.858,7454.53266 C257.335,7454.64369 256.653,7454.73172 254.355,7453.77943 C251.774,7452.71011 248.19,7448.90097 248.19,7446.36621 C248.19,7445.07582 248.934,7443.57337 250.235,7443.57337 C250.861,7443.57337 250.999,7443.58538 251.205,7444.07952 C251.446,7444.6617 252.034,7446.09613 252.104,7446.24317 C252.393,7446.84635 251.81,7447.19946 251.387,7447.72462 C251.252,7447.88266 251.099,7448.05372 251.27,7448.3478 C251.44,7448.63589 252.028,7449.59418 252.892,7450.36341 C254.008,7451.35771 254.913,7451.6748 255.237,7451.80984 C255.478,7451.90987 255.766,7451.88687 255.942,7451.69881 C256.165,7451.45774 256.442,7451.05762 256.724,7450.6635 C256.923,7450.38141 257.176,7450.3464 257.441,7450.44643 C257.62,7450.50845 259.895,7451.56477 259.991,7451.73382 C260.062,7451.85686 260.062,7452.43903 259.821,7453.12124 M254.002,7439 L253.997,7439 L253.997,7439 C248.484,7439 244,7443.48535 244,7449 C244,7451.18666 244.705,7453.21526 245.904,7454.86076 L244.658,7458.57687 L248.501,7457.3485 C250.082,7458.39482 251.969,7459 254.002,7459 C259.515,7459 264,7454.51465 264,7449 C264,7443.48535 259.515,7439 254.002,7439"
+                          id="whatsapp-[#128]"> </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <span>+967712236727 </span>
+            </li>
+            <!-- <li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+<span>admissions@riu.edu.int</span>
+</li> -->
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+        <p id="footer-copyright">© 2025 Rabbaninen International University. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-white" href="#" id="footer-privacy">Privacy Policy</a>
+          <a class="hover:text-white" href="#" id="footer-terms">Terms of Use</a>
+          <a class="hover:text-white" href="#" id="footer-accreditation">Accreditation</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleCollege(button) {
+      const content = button.nextElementSibling; // the div after the button
+      const chevron = button.querySelector('.chevron-icon svg');
+
+      if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Collapse
+        content.style.maxHeight = '0px';
+        chevron.classList.remove('rotate-180');
+      } else {
+        // Expand
+        content.style.maxHeight = content.scrollHeight + 'px';
+        chevron.classList.add('rotate-180');
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
